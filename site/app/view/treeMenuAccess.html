@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="col-md-12">
+		<itx-box box-type="">
+			<box-title>
+				
+			</box-title>
+			<box-body>
+			  <div class="col-md-12 box-body table-responsive no-padding">
+				<div class="col-md-4">
+					<label>Usuario {{record.Id_user}}</label>
+					<itx-select ng-change="record.Id_user = record.cmbId_user.Id_user" 
+					ng-model="record.cmbId_user"
+						  ng-options="tbl_ad_user.username for tbl_ad_user in tbl_ad_users track by tbl_ad_user.Id_user">
+					</itx-select>
+				</div>
+			  </div>
+		  </box-body>
+		  <box-footer>
+			<button type="button" class="btn btn-warning" ng-click="cancel()">Cancelar</button>
+			<button type="button" class="btn btn-info" ng-click="save()">Aceptar</button>
+		  </box-footer>
+		</itx-box>
+	</div>
+	<div class="col-md-12">
+		<itx-box box-type="">
+		  <box-title></box-title>
+			<box-body>          
+			  <div class="col-md-12">
+					<button type="submit" class="btn btn-primary" ng-click="checkAll(dataTreePivot,true)">Marcar</button>
+					<button type="submit" class="btn btn-primary" ng-click="checkAll(dataTreePivot,false)">Desmarcar</button>
+					<button type="submit" class="btn btn-primary" ng-click="expandAll(dataTreePivot,true)">Expandir</button>
+					<button type="submit" class="btn btn-primary" ng-click="expandAll(dataTreePivot,false)">Collapsar</button>
+			  </div>
+			  <div class="col-md-12">
+				<hr/>
+			  </div>
+			  <div class="col-md-12">
+				<input type="text" class="form-control" ng-model="record.qx" my-enter="fnFilter()">
+			  </div>
+			  <div class="col-md-12 box-body table-responsive no-padding;" style="min-height:400px; max-height:400px; overflow:scroll;">
+				<div my-tree-view data="dataTreePivot" handson-size="500" on-selection-change="onSelectionChange(event, data)" multi-select="true"></div>
+			  </div>
+			</box-body>
+		  <box-footer>
+			
+		  </box-footer>
+		</itx-box>
+	</div>
+</div>

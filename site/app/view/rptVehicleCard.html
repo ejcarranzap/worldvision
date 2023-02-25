@@ -1,0 +1,367 @@
+<div class="row" id="rptVehicleCard">
+    <!-- left column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <itx-box box-type="">
+            <box-title>Ficha Vehículo</box-title>
+            <box-body>
+                <div class="col-md-12">
+                    <div class="form-group  col-md-3">
+                        <label>Vehículo</label>
+                        <itx-select ng-change="record.Id_vehicle = record.cmbId_vehicle.Id_vehicle" ng-model="record.cmbId_vehicle" ng-options="tbl_ad_vehicle.vehiculo for tbl_ad_vehicle in tbl_ad_vehicles track by tbl_ad_vehicle.Id_vehicle"></itx-select>
+                    </div>
+                </div>
+                <div class="col-md-12 no-print">
+                    <div class="form-group  col-md-1">
+                        <button type="button" class="btn btn-info no-print" ng-click="getData()">Consultar</button>
+                    </div>
+                    <div class="form-group  col-md-1">
+                        <button type="button" class="btn btn-info no-print" my-print-div div-name="rptVehicleCard">Imprimir</button>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <hr/>
+                </div>
+                <div class="col-md-12 center" style="color: #269abc">
+                    Datos del Vehículo
+                </div>
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-12 box-body table-responsive no-padding">
+                        <table class="table  table table-hover">
+                            <tbody>
+                                <tr>
+                                    <td style="width:20%; text-align: right;">Placa:</td>
+                                    <td style="width:80%;  text-align: left;">{{dataa.code}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%; text-align: right;">Marca:</td>
+                                    <td style="width:80%;  text-align: left;">{{dataa.make}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%; text-align: right;">Línea:</td>
+                                    <td style="width:80%;  text-align: left;">{{dataa.model}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%; text-align: right;">Color:</td>
+                                    <td style="width:80%;  text-align: left;">{{dataa.color}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%; text-align: right;">Modelo:</td>
+                                    <td style="width:80%;  text-align: left;">{{dataa.year}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%; text-align: right;">Comentario:</td>
+                                    <td style="width:80%;  text-align: left;">{{dataa.comment}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--Kilometraje-->
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12 center" style="color: #269abc">
+                    Kilometraje
+                </div>
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-12 box-body table-responsive no-padding">
+                        <table class="table  table table-hover">
+                            <thead>
+                                <th>Placa</th>
+                                <th>Kilometraje</th>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="itm in datab">
+                                    <td>{{itm.code}}</td>
+                                    <td style="width:80%;  text-align: left;">{{itm.total}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--Mantenimiento-->
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12 center" style="color: #269abc">
+                    Mantenimiento
+                </div>
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-12 box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="fit">Placa</th>
+                                    <th>Fecha</th>
+                                    <th>Costo</th>
+                                    <th>Se realizo (Km)</th>
+                                    <th>Proximo Mant.</th>
+                                    <th>Comentario</th>
+                                    <th>Tipo</th>
+                                    <!--<th>Combustible</th>
+                                                    <th>DATE_MOD</th>
+                                                    <th>USER_MOD</th>
+                                                    <th>Activo</th>
+                                                    <th class="text-right fit">Editar</th>-->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in datac">
+                                    <td class="fit">{{item.code}}</td>
+                                    <td>{{item.date_mod | dateText}}</td>
+                                    <td>{{item.price}}</td>
+                                    <td>{{item.mileage_service_current}}</td>
+                                    <td>{{item.mileage_service_next}}</td>
+                                    <td>{{item.comment}}</td>
+                                    <td>{{item.maintenance_type}}</td>
+                                    <!--<td>{{item.has_fuel | SiNo}}</td>
+                                                    <td>{{item.date_mod}}</td>
+                                                    <td>{{item.user_mod}}</td>
+                                                    <td>{{item.active | SiNo}}</td>
+                                                    <td class="text-right fit">
+                                                        <button class="btn btn-default" type="button" ng-click="open(item,'lg','edit')">
+                                                            <span class="glyphicon glyphicon-edit"></span>
+                                                        </button>
+                                                    </td>-->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--Lectura Semanal-->
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12 center" style="color: #269abc">
+                    Lectura Semanal
+                </div>
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-12 box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="fit">Placa</th>
+                                    <th>Fecha Lectura</th>
+                                    <th>Kilometraje</th>
+                                    <th>Usuario</th>
+                                    <th>Comentario</th>
+                                    <th>Bitacora</th>
+                                    <th>Limpieza</th>
+                                    <th>Combustible</th>
+                                    <!--<th>DATE_MOD</th>
+                                                <th>USER_MOD</th>
+                                                <th>Activo</th>
+                                                <th class="text-right fit">Editar</th>-->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in datad">
+                                    <td class="fit">{{item.code}}</td>
+                                    <td>{{item.mileage_date | dateText}}</td>
+                                    <td>{{item.mileage_current}}</td>
+                                    <td>{{item.user_mod}}</td>
+                                    <td>{{item.comment}}</td>
+                                    <td>{{item.has_history | SiNo}}</td>
+                                    <td>{{item.is_clean | SiNo}}</td>
+                                    <td>{{item.has_fuel | SiNo}}</td>
+                                    <!--<td>{{item.date_mod}}</td>
+                                                <td>{{item.user_mod}}</td>
+                                                <td>{{item.active | SiNo}}</td>
+                                                <td class="text-right fit">
+                                                    <button class="btn btn-default" type="button" ng-click="open(item,'lg','edit')">
+                                                        <span class="glyphicon glyphicon-edit"></span>
+                                                    </button>
+                                                </td>-->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--Llantas-->
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12 center" style="color: #269abc">
+                    Llantas
+                </div>
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-12 box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <!--<th class="fit">ID</th>
+                                    <th>Vehículo</th>-->
+                                    <th>Marca</th>
+                                    <th>Proveedor</th>
+                                    <th>Factura</th>
+                                    <th>Rin</th>
+                                    <th>Fecha Compra</th>
+                                    <th>Precio</th>
+                                    <th>Comentario</th>
+                                    <th>Kms</th>
+                                    <th>Fecha Baja</th>
+                                    <!--<th>DATE_MOD</th>
+                                            <th>USER_MOD</th>-->
+                                    <th>Activo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in datae">
+                                    <!--<td class="fit">{{item.Id_tire}}</td>
+                                    <td>{{item.tbl_ad_vehicle}}</td>-->
+                                    <td>{{item.make}}</td>
+                                    <td>{{item.supplier}}</td>
+                                    <td>{{item.invoice}}</td>
+                                    <td>{{item.rin}}</td>
+                                    <td>{{item.purchace_date | dateText}}</td>
+                                    <td>{{item.price}}</td>
+                                    <td>{{item.comment}}</td>
+                                    <td>{{item.mileage}}</td>
+                                    <td>{{item.inactivation_date | dateText}}</td>
+                                    <!--<td>{{item.date_mod}}</td>
+                                            <td>{{item.user_mod}}</td>-->
+                                    <td>{{item.active | SiNo}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--Baterías-->
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12 center" style="color: #269abc">
+                    Baterías
+                </div>
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-12 box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <!--<th class="fit">ID</th>
+                                    <th>Vehículo</th>-->
+                                    <th>Proveedor</th>
+                                    <th>Marca</th>
+                                    <th>Tipo</th>
+                                    <th>Factura</th>
+                                    <th>Fecha Compra</th>
+                                    <th>Precio</th>
+                                    <th>Celdas</th>
+                                    <th>Comentario</th>
+                                    <th>Vencimiento</th>
+                                    <th>Fecha Baja</th>
+                                    <!--<th>DATE_MOD</th>
+                                                <th>USER_MOD</th>-->
+                                    <th>Activo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in dataf">
+                                    <!--<td class="fit">{{item.Id_battery}}</td>
+                                    <td>{{item.tbl_ad_vehicle}}</td>-->
+                                    <td>{{item.supplier}}</td>
+                                    <td>{{item.make}}</td>
+                                    <td>{{item.type}}</td>
+                                    <td>{{item.invoice}}</td>
+                                    <td>{{item.purchace_date | dateText}}</td>
+                                    <td>{{item.purchace_price}}</td>
+                                    <td>{{item.cells}}</td>
+                                    <td>{{item.comment}}</td>
+                                    <td>{{item.due_date | dateText}}</td>
+                                    <td>{{item.inactivation_date | dateText}}</td>
+                                    <!--<td>{{item.date_mod}}</td>
+                                                <td>{{item.user_mod}}</td>-->
+                                    <td>{{item.active | SiNo}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--Siniestro-->
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12 center" style="color: #269abc">
+                    Siniestro
+                </div>
+                <div class="col-md-12 center">
+                    <hr>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-12 box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <!--<th class="fit">ID</th>-->
+                                    <th>Tipo</th>
+                                    <!-- <th>Vehículo</th> -->
+                                    <th>Responsable</th>
+                                    <th>Fecha Evento</th>
+                                    <th>Lugar Evento</th>
+                                    <th>Precio</th>
+                                    <th>Comentario</th>
+                                    <!--<th>IMAGE1</th>
+                                            <th>IMAGE2</th>
+                                            <th>IMAGE3</th>
+                                            <th>IMAGE4</th>
+                                            <th>IMAGE5</th>
+                                            <th>IMAGE6</th>
+                                            <th>DATE_MOD</th>
+                                            <th>USER_MOD</th>-->
+                                    <th>Activo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in datag">
+                                    <!-- <td class="fit">{{item.Id_new}}</td> -->
+                                    <td>{{item.type}}</td>
+                                    <!-- <td>{{item.tbl_ad_vehicle}}</td> -->
+                                    <td>{{item.manager}}</td>
+                                    <td>{{item.event_date | dateText}}</td>
+                                    <td>{{item.event_site}}</td>
+                                    <td>{{item.price}}</td>
+                                    <td>{{item.comment}}</td>
+                                    <!--<td>{{item.image1}}</td>
+                                            <td>{{item.image2}}</td>
+                                            <td>{{item.image3}}</td>
+                                            <td>{{item.image4}}</td>
+                                            <td>{{item.image5}}</td>
+                                            <td>{{item.image6}}</td>
+                                            <td>{{item.date_mod}}</td>
+                                            <td>{{item.user_mod}}</td>-->
+                                    <td>{{item.active | SiNo}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </box-body>
+            <box-footer>
+                <div class="col-md-1 col-md-offset-11">
+                    <!--<button type="button" class="btn btn-primary" ng-click="getData()">Buscar</button>-->
+                </div>
+            </box-footer>
+        </itx-box>
+    </div>
+    <!--/.col (left) -->
+</div>
+<!-- /.row -->

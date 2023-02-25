@@ -1,0 +1,317 @@
+<div class="row">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="close()" aria-label="Close">
+      <span aria-hidden="true">?</span>
+    </button>
+    <h4 class="modal-title">Vehículo</h4>
+  </div>
+  <div class="modal-body">
+    <itx-box box-type="">
+      <box-title></box-title>
+      <box-body>
+        <div class="row">
+          <div class="col-md-12">
+            <form role="form">
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label>ID:</label>
+                  <input type="number" class="form-control" placeholder="ID_VEHICLE" ng-model="record.Id_vehicle" disabled>
+                </div>
+                <div class="form-group  col-md-3 hidden">
+                  <label>Ubicación:</label>
+                  <itx-select ng-change="record.Id_location = record.cmbId_location.Id_location" ng-model="record.cmbId_location" ng-options="tbl_ad_location.name for tbl_ad_location in tbl_ad_locations track by tbl_ad_location.Id_location"></itx-select>
+                </div>
+                <div class="form-group  col-md-3">
+                  <label>Ubicación:{{record.Id_location}}</label>
+                  <multi-select-tree data-input-model="data2" multi-select="false" data-output-model="record.cmbId_locationx" data-default-label="Click here to Select..."
+                    data-callback="selectOnly1Or2(item, selectedItems)"></multi-select-tree>
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Placa:</label>
+                  <input type="text" class="form-control" placeholder="Placa" ng-model="record.code">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>No. Vehículo:</label>
+                  <input type="text" class="form-control" placeholder="No." ng-model="record.vehicle_number">
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-3">
+                  <label>Tipo:</label>
+                  <itx-select ng-change="record.Id_type = record.cmbId_type.Id_type" ng-model="record.cmbId_type" ng-options="tbl_ad_type.name for tbl_ad_type in tbl_ad_types track by tbl_ad_type.Id_type"></itx-select>
+                </div>
+                <div class="form-group  col-md-3">
+                  <label>Marca:</label>
+                  <itx-select ng-change="record.Id_make = record.cmbId_make.Id_make" ng-model="record.cmbId_make" ng-options="tbl_ad_make.name for tbl_ad_make in tbl_ad_makes track by tbl_ad_make.Id_make"></itx-select>
+                </div>
+                <div class="form-group  col-md-3">
+                  <label>Modelo:</label>
+                  <itx-select ng-change="record.Id_model = record.cmbId_model.Id_model" ng-model="record.cmbId_model" ng-options="tbl_ad_model.name for tbl_ad_model in tbl_ad_models_pivot track by tbl_ad_model.Id_model"></itx-select>
+                </div>
+                <div class="form-group  col-md-3">
+                  <label>Color:</label>
+                  <itx-select ng-change="record.Id_color = record.cmbId_color.Id_color" ng-model="record.cmbId_color" ng-options="tbl_ad_color.name for tbl_ad_color in tbl_ad_colors track by tbl_ad_color.Id_color"></itx-select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-3">
+                  <label>Año:</label>
+                  <itx-select ng-change="record.Id_year = record.cmbId_year.Id_year" ng-model="record.cmbId_year" ng-options="tbl_ad_year.name for tbl_ad_year in tbl_ad_years track by tbl_ad_year.Id_year"></itx-select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Chasis:</label>
+                  <input type="text" class="form-control" placeholder="CHASSIS" ng-model="record.chassis">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Mototr:</label>
+                  <input type="text" class="form-control" placeholder="ENGINE" ng-model="record.engine">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Tarjeta de Circulación:</label>
+                  <input type="text" class="form-control" placeholder="CIRCULATION_CARD" ng-model="record.circulation_card">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-3">
+                  <label>Proveedor:</label>
+                  <itx-select ng-change="record.Id_supplier = record.cmbId_supplier.Id_supplier" ng-model="record.cmbId_supplier" ng-options="tbl_ad_supplier.name for tbl_ad_supplier in tbl_ad_suppliers track by tbl_ad_supplier.Id_supplier"></itx-select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Precio:</label>
+                  <input type="text" class="form-control" placeholder="PURCHACE_PRICE" ng-model="record.purchace_price">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Depreciación:</label>
+                  <input type="text" class="form-control" placeholder="DEPRECIATION" ng-model="record.depreciation">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Poliza:</label>
+                  <input type="text" class="form-control" placeholder="POLICY" ng-model="record.policy">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label>Titulo:</label>
+                  <input type="text" class="form-control" placeholder="TITLE" ng-model="record.title">
+                </div>
+                <div class="form-group  col-md-3">
+                  <label>Responsable:</label>
+                  <itx-select ng-change="record.Id_manager = record.cmbId_manager.Id_manager" ng-model="record.cmbId_manager" ng-options="tbl_ad_manager.name for tbl_ad_manager in tbl_ad_managers track by tbl_ad_manager.Id_manager"></itx-select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label>Servicio cada (kms):</label>
+                  <input type="number" class="form-control" placeholder="MILEAGE_SERVICE" ng-model="record.mileage_service">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Avisar cuando falten (kms):</label>
+                  <input type="number" class="form-control" placeholder="MILEAGE_ALERT" ng-model="record.mileage_alert">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Fecha ultimo servicio (km):</label>
+                  <div class="input-group">
+                    <div my-datepicker ng-model="record.mileage_service_applied_date" dtp-enabled="enabled"></div>
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Km Siguiente Servicio:</label>
+                  <input type="number" class="form-control" placeholder="MILEAGE_SERVICE_NEXT" ng-model="record.mileage_service_next" disabled>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label>Km Actual:</label>
+                  <input type="number" class="form-control" placeholder="MILEAGE_CURRENT" ng-model="record.mileage_current" disabled>
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Fecha Lectura:</label>
+                  <div class="input-group">
+                    <div my-datepicker ng-model="record.mileage_date_read" dtp-enabled="enabled"></div>
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Kilometraje ultimo servicio (Km):</label>
+                  <input type="number" class="form-control" placeholder="MILEAGE_SERVICE_APPLIED" ng-model="record.mileage_service_applied"
+                    disabled>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-3">
+                  <label>Estado Inv.:</label>
+                  <itx-select ng-change="record.Id_inventory_state = record.cmbId_inventory_state.Id_inventory_state" ng-model="record.cmbId_inventory_state"
+                    ng-options="tbl_ad_inventory_state.name for tbl_ad_inventory_state in tbl_ad_inventory_states track by tbl_ad_inventory_state.Id_inventory_state"></itx-select>
+                </div>
+                <div class="form-group  col-md-3">
+                  <label>Estado:</label>
+                  <itx-select ng-change="record.Id_state = record.cmbId_state.Id_state" ng-model="record.cmbId_state" ng-options="tbl_ad_state.name for tbl_ad_state in tbl_ad_states track by tbl_ad_state.Id_state"></itx-select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Comentario:</label>
+                  <input type="text" class="form-control" placeholder="COMMENT" ng-model="record.comment">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Fecha Baja:</label>
+                  <div class="input-group">
+                    <div my-datepicker ng-model="record.inactivation_date" dtp-enabled="enabled"></div>
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  {{errorMsg | json}}
+                  <div ngf-select="uploadFiles($file, $invalidFiles, 'image1')" ngf-drop type="file" ngf-accept="'image/*,video/*'" max-size="20MB"
+                    value="Upload">
+                    <img width="100" height="100" class="img-responsive img-radio" check-image ng-src="{{filepath}}{{record.image1 | randomSrc}}"
+                    />
+                  </div>
+                  <button fancybox ng-click="openFancybox(record.image1)" type="button" class="btn btn-primary btn-radio">Ver
+                    Tama?o Normal</button>
+                </div>
+                <div class="col-md-3">
+                  {{errorMsg | json}}
+                  <div ngf-select="uploadFiles($file, $invalidFiles, 'image2')" ngf-drop type="file" ngf-accept="'image/*,video/*'" max-size="20MB"
+                    value="Upload">
+                    <img width="100" height="100" class="img-responsive img-radio" check-image ng-src="{{filepath}}{{record.image2 | randomSrc}}"
+                    />
+                  </div>
+                  <button fancybox ng-click="openFancybox(record.image2)" type="button" class="btn btn-primary btn-radio">Ver
+                    Tama?o Normal</button>
+                </div>
+                <div class="col-md-3">
+                  {{errorMsg | json}}
+                  <div ngf-select="uploadFiles($file, $invalidFiles, 'image3')" ngf-drop type="file" ngf-accept="'image/*,video/*'" max-size="20MB"
+                    value="Upload">
+                    <img width="100" height="100" class="img-responsive img-radio" check-image ng-src="{{filepath}}{{record.image3 | randomSrc}}"
+                    />
+                  </div>
+                  <button fancybox ng-click="openFancybox(record.image3)" type="button" class="btn btn-primary btn-radio">Ver
+                    Tama?o Normal</button>
+                </div>
+                <div class="col-md-3">
+                  {{errorMsg | json}}
+                  <div ngf-select="uploadFiles($file, $invalidFiles, 'image4')" ngf-drop type="file" ngf-accept="'image/*,video/*'" max-size="20MB"
+                    value="Upload">
+                    <img width="100" height="100" class="img-responsive img-radio" check-image ng-src="{{filepath}}{{record.image4 | randomSrc}}"
+                    />
+                  </div>
+                  <button fancybox ng-click="openFancybox(record.image4)" type="button" class="btn btn-primary btn-radio">Ver
+                    Tama?o Normal</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  {{errorMsg | json}}
+                  <div ngf-select="uploadFiles($file, $invalidFiles, 'image5')" ngf-drop type="file" ngf-accept="'image/*,video/*'" max-size="20MB"
+                    value="Upload">
+                    <img width="100" height="100" class="img-responsive img-radio" check-image ng-src="{{filepath}}{{record.image5 | randomSrc}}"
+                    />
+                  </div>
+                  <button fancybox ng-click="openFancybox(record.image5)" type="button" class="btn btn-primary btn-radio">Ver
+                    Tama?o Normal</button>
+                </div>
+                <div class="col-md-3">
+                  {{errorMsg | json}}
+                  <div ngf-select="uploadFiles($file, $invalidFiles, 'image6')" ngf-drop type="file" ngf-accept="'image/*,video/*'" max-size="20MB"
+                    value="Upload">
+                    <img width="100" height="100" class="img-responsive img-radio" check-image ng-src="{{filepath}}{{record.image6 | randomSrc}}"
+                    />
+                  </div>
+                  <button fancybox ng-click="openFancybox(record.image6)" type="button" class="btn btn-primary btn-radio">Ver
+                    Tama?o Normal</button>
+                </div>
+                <!--<div class="form-group col-md-3">
+                      <label>DATE_MOD:</label>
+                      <div class="input-group">
+                        <div my-datepicker ng-model="record.date_mod" dtp-enabled="enabled"></div>
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                      </div>
+                </div>
+                <div class="form-group col-md-3">
+                      <label>USER_MOD:</label>
+                      <input type="text" class="form-control" placeholder="USER_MOD" ng-model="record.user_mod">
+                </div>-->
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label></label>
+                  <itx-checkbox ng-model="record.active" is-disabled="disabled" text-label="Activo" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <!--<uib-tabset active="active">
+      <uib-tab index="1" heading="tbl_ad_battery">
+       <div class="row spacer">
+       <div class="col-md-12">
+        <div handsontable event-trigger="TriggerLoadDatatbl_ad_battery" data="data" headers="headers" merge-cells="mergeCellstbl_ad_battery" on-cell-change-fn="onCellChangetbl_ad_battery(changes, source, datarow)" on-cell-click-fn="onCellClicktbl_ad_battery(datarow, colname, rowIndex, colIndex)" handson-size="175">
+        </div>
+       </div>
+       </div>
+      </uib-tab>
+      <uib-tab index="2" heading="tbl_ad_maintenance">
+       <div class="row spacer">
+       <div class="col-md-12">
+        <div handsontable event-trigger="TriggerLoadDatatbl_ad_maintenance" data="data" headers="headers" merge-cells="mergeCellstbl_ad_maintenance" on-cell-change-fn="onCellChangetbl_ad_maintenance(changes, source, datarow)" on-cell-click-fn="onCellClicktbl_ad_maintenance(datarow, colname, rowIndex, colIndex)" handson-size="175">
+        </div>
+       </div>
+       </div>
+      </uib-tab>
+      <uib-tab index="3" heading="tbl_ad_mileage">
+       <div class="row spacer">
+       <div class="col-md-12">
+        <div handsontable event-trigger="TriggerLoadDatatbl_ad_mileage" data="data" headers="headers" merge-cells="mergeCellstbl_ad_mileage" on-cell-change-fn="onCellChangetbl_ad_mileage(changes, source, datarow)" on-cell-click-fn="onCellClicktbl_ad_mileage(datarow, colname, rowIndex, colIndex)" handson-size="175">
+        </div>
+       </div>
+       </div>
+      </uib-tab>
+      <uib-tab index="4" heading="tbl_ad_new">
+       <div class="row spacer">
+       <div class="col-md-12">
+        <div handsontable event-trigger="TriggerLoadDatatbl_ad_new" data="data" headers="headers" merge-cells="mergeCellstbl_ad_new" on-cell-change-fn="onCellChangetbl_ad_new(changes, source, datarow)" on-cell-click-fn="onCellClicktbl_ad_new(datarow, colname, rowIndex, colIndex)" handson-size="175">
+        </div>
+       </div>
+       </div>
+      </uib-tab>
+      <uib-tab index="5" heading="tbl_ad_repair">
+       <div class="row spacer">
+       <div class="col-md-12">
+        <div handsontable event-trigger="TriggerLoadDatatbl_ad_repair" data="data" headers="headers" merge-cells="mergeCellstbl_ad_repair" on-cell-change-fn="onCellChangetbl_ad_repair(changes, source, datarow)" on-cell-click-fn="onCellClicktbl_ad_repair(datarow, colname, rowIndex, colIndex)" handson-size="175">
+        </div>
+       </div>
+       </div>
+      </uib-tab>
+      <uib-tab index="6" heading="tbl_ad_scheduling">
+       <div class="row spacer">
+       <div class="col-md-12">
+        <div handsontable event-trigger="TriggerLoadDatatbl_ad_scheduling" data="data" headers="headers" merge-cells="mergeCellstbl_ad_scheduling" on-cell-change-fn="onCellChangetbl_ad_scheduling(changes, source, datarow)" on-cell-click-fn="onCellClicktbl_ad_scheduling(datarow, colname, rowIndex, colIndex)" handson-size="175">
+        </div>
+       </div>
+       </div>
+      </uib-tab>
+     </uib-tabset>-->
+        </div>
+      </box-body>
+      <box-footer>
+      </box-footer>
+    </itx-box>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" ng-click="close()">Cancelar</button>
+    <button type="button" class="btn btn-info" ng-click="save()">Aceptar</button>
+  </div>
+</div>

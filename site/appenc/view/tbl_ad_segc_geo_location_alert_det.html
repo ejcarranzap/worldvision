@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="close()" aria-label="Close">
+      <span aria-hidden="true">?</span>
+    </button>
+    <h4 class="modal-title">tbl_ad_segc_geo_location_alert</h4>
+  </div>
+  <div class="modal-body">
+    <itx-box box-type="">
+      <box-title></box-title>
+      <box-body>
+        <div class="row">
+          <div class="col-md-12">
+            <form role="form">
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>ID:</label>
+                        <input type="number" class="form-control" placeholder="Id_geo_location_alert" ng-model="record.Id_geo_location_alert" readonly>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Id_alert_type:</label>
+                        <itx-select is-disabled="isDisabled" ng-change="record.Id_alert_type = record.tbl_ad_segc_geo_alert_typeCmb.Id_alert_type" ng-model="record.tbl_ad_segc_geo_alert_typeCmb" 
+                        ng-options="tbl_ad_segc_geo_alert_type.name for tbl_ad_segc_geo_alert_type in tbl_ad_segc_geo_alert_types track by tbl_ad_segc_geo_alert_type.Id_alert_type" ></itx-select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>latitude:</label>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>longitude:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>description:</label>
+                        <input type="text" class="form-control" placeholder="description" ng-model="record.description">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>user_mod:</label>
+                        <input type="text" class="form-control" placeholder="user_mod" ng-model="record.user_mod">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>date_mod:</label>
+                        <div class="input-group">
+                            <div my-datepicker ng-model="record.date_mod" dtp-enabled="enabled"></div>
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>active:</label>
+                        <itx-checkbox ng-model="record.active" is-disabled="disabled" text-label="active" />
+                    </div>
+                </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </box-body>
+      <box-footer></box-footer>
+    </itx-box>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" ng-click="close()">Cancelar</button>
+    <button type="button" class="btn btn-info" ng-click="save()">Aceptar</button>
+  </div>
+</div>

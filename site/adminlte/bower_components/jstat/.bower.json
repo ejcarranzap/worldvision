@@ -1,0 +1,15 @@
+{
+  "name": "jstat",
+  "homepage": "https://github.com/jstat/jstat",
+  "version": "1.5.2",
+  "_release": "1.5.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.5.2",
+    "commit": "23e7fb19bd5c0fd8705d9e279d9401e32c1e5ff5"
+  },
+  "_source": "https://github.com/jstat/jstat.git",
+  "_target": "^1.5.2",
+  "_originalSource": "jstat",
+  "_direct": true
+}

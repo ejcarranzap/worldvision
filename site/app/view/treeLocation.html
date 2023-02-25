@@ -1,0 +1,86 @@
+<div class="row">
+	<div class="col-md-4">
+		<itx-box box-type="">
+		  <box-title></box-title>
+			<box-body>          
+			  <div class="col-md-12">
+					<!--<button type="submit" class="btn btn-primary" ng-click="checkAll(dataTreePivot,true)">Marcar</button>
+					<button type="submit" class="btn btn-primary" ng-click="checkAll(dataTreePivot,false)">Desmarcar</button>-->
+					<button type="submit" class="btn btn-primary" ng-click="expandAll(dataTreePivot,true)">Expandir</button>
+					<button type="submit" class="btn btn-primary" ng-click="expandAll(dataTreePivot,false)">Collapsar</button>
+			  </div>
+			  <div class="col-md-12">
+				<hr/>
+			  </div>
+			  <div class="col-md-12">
+				<input type="text" class="form-control" ng-model="record.qx" my-enter="fnFilter()">
+			  </div>
+			  <div class="col-md-12 box-body table-responsive no-padding;" style="min-height:400px; max-height:400px; overflow:scroll;">
+				<div my-tree-view data="dataTreePivot" handson-size="500" on-selection-change="onSelectionChange(event, data)" multi-select="false"></div>
+			  </div>
+			</box-body>
+		  <box-footer>
+			
+		  </box-footer>
+		</itx-box>
+	</div>
+	<div class="col-md-8">
+		<itx-box box-type="">
+			<box-title>
+				
+			</box-title>
+			<box-body>
+			  <div class="col-md-12 box-body table-responsive no-padding">
+				<div class="form-group col-md-4">
+					<label>ID:</label>
+					<input type="number" class="form-control" placeholder="" ng-model="record.Id_location" disabled>
+				</div>
+				<div class="col-md-4">
+					<label>Tipo de Ubicación</label>
+					<itx-select ng-change="record.Id_location_type = record.cmbId_location_type.Id_location_type" 
+					ng-model="record.cmbId_location_type"
+						  ng-options="tbl_ad_location_type.name for tbl_ad_location_type in tbl_ad_location_types track by tbl_ad_location_type.Id_location_type">
+					</itx-select>
+				</div>
+				<div class="col-md-4">
+					<label>Pariente</label>
+					<itx-select ng-change="record.Id_location_parent = record.cmbId_location_parent.Id_location" 
+					ng-model="record.cmbId_location_parent"
+						  ng-options="tbl_ad_location.name for tbl_ad_location in tbl_ad_locations track by tbl_ad_location.Id_location">
+					</itx-select>
+				</div>
+				<div class="form-group col-md-12">
+					<label>Codigo:</label>
+					<input type="text" class="form-control" placeholder="" ng-model="record.code">
+				</div>
+				<div class="form-group col-md-12">
+					<label>Nombre:</label>
+					<input type="text" class="form-control" placeholder="" ng-model="record.name">
+				</div>
+				<div class="form-group col-md-12">
+					<label>Latitud:</label>
+					<input type="number" class="form-control" placeholder="" ng-model="record.lat">
+				</div>
+				<div class="form-group col-md-6">
+					<label>Longitud:</label>
+					<input type="number" class="form-control" placeholder="" ng-model="record.lon">
+				</div>
+				<div class="form-group col-md-6">
+						  <label></label>
+						  <itx-checkbox ng-model="record.active" is-disabled="disabled" text-label="Activo" />
+				</div>
+				<div class="form-group col-md-12">
+					<label>Dirección:</label>
+					<input type="text" class="form-control" placeholder="" ng-model="record.address">
+				</div>
+				
+			  </div>
+		  </box-body>
+		  <box-footer>
+			<button type="button" class="btn btn-warning" ng-click="cancel()">Cancelar</button>
+			<button type="button" class="btn btn-info" ng-click="save()">Aceptar</button>
+		  </box-footer>
+		</itx-box>
+	</div>
+  </div>
+</div>

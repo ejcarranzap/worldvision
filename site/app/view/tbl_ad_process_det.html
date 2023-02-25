@@ -1,0 +1,124 @@
+<div class="row">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="close()" aria-label="Close">
+      <span aria-hidden="true">?</span></button>
+    <h4 class="modal-title">{{ (_id == 1 ? 'Seguimiento' : 'Proceso') }}</h4>
+  </div>
+  <div class="modal-body">
+    <itx-box box-type="">
+      <box-title></box-title>
+      <box-body>
+        <!-- <div class="col-md-12">{{ data_files | json }}</div> -->
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-12">
+              <form role="form">
+                <div class="row">
+                  <div class="form-group col-md-3">
+                    <label>ID:</label>
+                    <input type="number" class="form-control" placeholder="ID_PROCESS" ng-model="record.Id_process"
+                      disabled>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>Titulo:</label>
+                    <input type="text" class="form-control" placeholder="TITLE" ng-model="record.title" ng-disabled="disableFields">
+                  </div>
+                  <div class="col-md-3">
+                    <label>Tipo</label>
+                    <itx-select ng-change="record.Id_activity_current = record.cmbId_activity_current.Id_activity"
+                      ng-model="record.cmbId_activity_current"
+                      ng-options="(item.Id_activity+' - '+item.name) for item in data_activity_aux track by item.Id_activity"
+                      is-disabled="disableFields">
+                    </itx-select>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label>Objetivo:</label>
+                    <input type="text" class="form-control" placeholder="TARGET" ng-model="record.target" ng-disabled="disableFields">
+                  </div>
+                </div>
+                <div class="row">
+                  <!--<div class="form-group col-md-3">
+                        <label>DATE_MOD:</label>
+                        <div class="input-group">
+                          <div my-datepicker ng-model="record.date_mod" dtp-enabled="enabled"></div>
+                          <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                        </div>
+                  </div>
+                  <div class="form-group col-md-3">
+                        <label>USER_MOD:</label>
+                        <input type="text" class="form-control" placeholder="USER_MOD" ng-model="record.user_mod">
+                  </div>-->
+                  <div class="form-group col-md-3">
+                    <label></label>
+                    <itx-checkbox ng-model="record.active" is-disabled="disabled" text-label="Activo" is-disabled="disableFields"/>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <uib-tabset active="active" ng-class="{hidden: record.Id_process == null}">
+              <uib-tab heading="Seguimiento" ng-attr-active="">
+                <div class="col-md-12">
+                  <hr>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group col-md-3">
+                    <label>ID:</label>
+                    <input type="number" class="form-control" placeholder="ID_STEP" ng-model="record.Id_step" disabled>
+                  </div>
+                  <div class="col-md-3">
+                    <label>Actividad</label>
+                    <itx-select ng-change="record.Id_activity = record.cmbId_activity.Id_activity"
+                      ng-model="record.cmbId_activity"
+                      ng-options="(item.Id_activity+' - '+item.name) for item in data_activity_aux_child track by item.Id_activity">
+                    </itx-select>
+                  </div>
+                  <div class="col-md-3">
+                    <label>Usuario</label>
+                    <itx-select ng-change="record.Id_user = record.cmbId_user.Id_user" ng-model="record.cmbId_user"
+                      ng-options="(item.Id_user+' - '+item.name) for item in data_user track by item.Id_user">
+                    </itx-select>
+                  </div>
+                  <div class="col-md-3">
+                    <label>Ubicación</label>
+                    <itx-select ng-change="record.Id_location = record.cmbId_location.Id_location"
+                      ng-model="record.cmbId_location"
+                      ng-options="(item.Id_location+' - '+item.name) for item in data_location track by item.Id_location">
+                    </itx-select>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label>Comentario:</label>
+                    <input type="text" class="form-control" placeholder="COMMENT" ng-model="record.comment">
+                  </div>
+                </div>
+              </uib-tab>
+              <uib-tab heading="Archivos" ng-attr-active="">
+                <div class="col-md-12">
+                  <hr>
+                </div>
+                <div class="col-md-12">
+                  <div jc-upload-file-array data="data_files" name="data_files_title" field-name="name" field-url="file"
+                    field-id="Id_process_file" options="options" after-change-fn="data_files_on_change(evt)"></div>
+                </div>
+              </uib-tab>
+            </uib-tabset>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div my-time-line title="timeline_title" data="timeline_data" title-field="title" comment-field="comment_aux"
+            date-field="date_mod">
+          </div>
+        </div>
+      </box-body>
+      <box-footer>
+      </box-footer>
+    </itx-box>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-warning" ng-click="close()">Cancelar</button>
+  <button type="button" class="btn btn-info" ng-click="save()" ng-class="{hidden: ((timeline_data.length > 0 && _id != 1) || (record.status == 1))}">Aceptar</button>
+</div>

@@ -1,0 +1,86 @@
+<div class="row">
+  <!-- left column -->
+  <div class="col-md-12">
+    <!-- general form elements -->
+    <itx-box box-type="">
+      <box-title>Asignación de Vehículo</box-title>
+      <box-body>
+          <div class="col-md-12">
+            <div class="form-group">
+                <label for="filtroInput">Filtro</label>
+                <div class="input-group input-group-sm">
+                <input type="text" class="form-control" ng-model="record.q" id="filtroInput">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-info btn-new" ng-click="open(null,'lg','new')">Nuevo</button>
+                    </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 box-body table-responsive no-padding">
+            <div class="text-left">
+                <dir-pagination-controls max-size="30" direction-links="true" boundary-links="true" template-url="app/view/dirPagination.tpl.html">
+                </dir-pagination-controls>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="fit">ID</th>
+                        <th>Vehículo</th>
+                        <th>Comentario</th>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Piloto</th>
+                        <th>Inicio</th>
+                        <th>Fin</th>
+                        <th>Km Actual</th>
+                        <th>Km Final</th>
+                        <!--<th>DATE_MOD</th>
+                        <th>USER_MOD</th>-->
+                        <th>Status</th>
+                        <th class="text-right fit">Editar</th>
+						<th class="text-right fit">Cancelar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-show="data.length <= 0">
+                        <td colspan="14" style="text-align:center;">No hay datos...</td>
+                    </tr>
+                    <tr ng-click="" dir-paginate="item in pivot_data | itemsPerPage:10 ">
+                        <td class="fit" ng-class="{'success': (item.active == 1),'danger':(item.active==0)}">{{item.Id_scheduling}}</td>
+                        <td>{{item.tbl_ad_vehicle}}</td>
+                        <td>{{item.comment}}</td>
+                        <td>{{item.source_address}}</td>
+                        <td>{{item.destination_address}}</td>
+                        <td>{{item.driver}}</td>
+                        <td>{{item.start_date | dateText}}</td>
+                        <td>{{item.end_date | dateText}}</td>
+                        <td>{{item.mileage_start}}</td>
+                        <td>{{item.mileage_end}}</td>
+                        <!--<td>{{item.date_mod}}</td>
+                        <td>{{item.user_mod}}</td>-->
+                        <td ng-class="{'info': (item.Id_scheduling_state==1),'warning': (item.Id_scheduling_state==2),'success': (item.Id_scheduling_state==3),'danger': (item.Id_scheduling_state==6)}">{{item.scheduling_state}}</td>
+                        <td class="text-right fit">
+                            <button class="btn btn-default" type="button" ng-click="open(item,'lg','edit')">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </button>
+                        </td>
+						<td class="text-right fit">
+                            <button class="btn btn-default" type="button" ng-click="cancelScheduling(item)">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+      </box-body>
+      <box-footer>
+        <div class="col-md-1 col-md-offset-11">
+          <!--<button type="button" class="btn btn-primary" ng-click="getData()">Buscar</button>-->
+        </div>
+      </box-footer>
+    </itx-box>
+  </div>
+  <!--/.col (left) -->
+</div>
+<!-- /.row -->

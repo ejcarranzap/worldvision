@@ -1,0 +1,49 @@
+{
+  "name": "handsontable-ruleJS",
+  "description": "Formula parser plugin for handsontable using ruleJS library",
+  "version": "0.0.4",
+  "main": [
+    "./src/handsontable.formula.js",
+    "./src/handsontable.formula.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/handsontable/handsontable-ruleJS.git"
+  },
+  "authors": [
+    "Handsoncode",
+    "Handsoncode <hello@handsontable.com>"
+  ],
+  "keywords": [
+    "handsontable-ruleJS",
+    "handsontable-formula",
+    "formula",
+    "excel",
+    "js-excel",
+    "js-formula",
+    "js-functions"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "css",
+    "lib",
+    "test"
+  ],
+  "dependencies": {
+    "handsontable": "0.14.1",
+    "ruleJS": "0.0.5",
+    "jquery": "2.1.3"
+  },
+  "homepage": "https://github.com/rw-meta/handsontable-ruleJS",
+  "_release": "0.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.4",
+    "commit": "8a1b80721f229cacd1a5365d42fe0568301fb999"
+  },
+  "_source": "https://github.com/rw-meta/handsontable-ruleJS.git",
+  "_target": "^0.0.4",
+  "_originalSource": "handsontable-ruleJS",
+  "_direct": true
+}

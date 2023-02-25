@@ -1,0 +1,231 @@
+<div class="row">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="close()" aria-label="Close">
+            <span aria-hidden="true">?</span>
+        </button>
+        <h4 class="modal-title">tbl_ad_segc_incident</h4>
+    </div>
+    <div class="modal-body">
+        <itx-box box-type="">
+            <box-title></box-title>
+            <box-body>
+                <!-- <div class="row">{{ record | json }}</div> -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <form role="form">
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label>ID:</label>
+                                    <input type="number" class="form-control" placeholder="Id_incident"
+                                        ng-model="record.Id_incident" readonly>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Persona Involucrada:</label>
+                                    <itx-select is-disabled="isDisabled"
+                                        ng-change="record.Id_person_involved = record.tbl_ad_segc_personCmb.Id_person"
+                                        ng-model="record.tbl_ad_segc_personCmb"
+                                        ng-options="tbl_ad_segc_person.name for tbl_ad_segc_person in tbl_ad_segc_persons track by tbl_ad_segc_person.Id_person">
+                                    </itx-select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Persona Reporta:</label>
+                                    <itx-select is-disabled="isDisabled"
+                                        ng-change="record.Id_person_reports = record.tbl_ad_segc_person2Cmb.Id_person"
+                                        ng-model="record.tbl_ad_segc_person2Cmb"
+                                        ng-options="tbl_ad_segc_person2.name for tbl_ad_segc_person2 in tbl_ad_segc_persons2 track by tbl_ad_segc_person2.Id_person">
+                                    </itx-select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Tipo de Incidente:</label>
+                                    <itx-select is-disabled="isDisabled"
+                                        ng-change="record.Id_incident_type = record.tbl_ad_segc_incident_typeCmb.Id_incident_type"
+                                        ng-model="record.tbl_ad_segc_incident_typeCmb"
+                                        ng-options="tbl_ad_segc_incident_type.name for tbl_ad_segc_incident_type in tbl_ad_segc_incident_types track by tbl_ad_segc_incident_type.Id_incident_type">
+                                    </itx-select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label>Fecha Incidente:</label>
+                                    <div class="input-group">
+                                        <div my-datepicker ng-model="record.incident_date" dtp-enabled="enabled"></div>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Fecha Descubrimiento:</label>
+                                    <div class="input-group">
+                                        <div my-datepicker ng-model="record.incident_discovery_date"
+                                            dtp-enabled="enabled"></div>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Fecha Reporte:</label>
+                                    <div class="input-group">
+                                        <div my-datepicker ng-model="record.incident_reports_date"
+                                            dtp-enabled="enabled"></div>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Direccion:</label>
+                                    <input type="text" class="form-control" placeholder="incident_address"
+                                        ng-model="record.incident_address">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label>Notificado a Autoridades:</label>
+                                    <itx-checkbox ng-model="record.is_authorities_notified" is-disabled="disabled"
+                                        text-label="is_authorities_notified" />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Autoridades Presentes:</label>
+                                    <itx-checkbox ng-model="record.is_authorities_present" is-disabled="disabled"
+                                        text-label="is_authorities_present" />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Involucro Examen Medico:</label>
+                                    <itx-checkbox ng-model="record.is_involved_medical_test" is-disabled="disabled"
+                                        text-label="is_involved_medical_test" />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Involucro Hospitalizacion:</label>
+                                    <itx-checkbox ng-model="record.is_involved_hospitalized" is-disabled="disabled"
+                                        text-label="is_involved_hospitalized" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label>Involucro Arresto:</label>
+                                    <itx-checkbox ng-model="record.is_involved_arrested" is-disabled="disabled"
+                                        text-label="is_involved_arrested" />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Activos Arrestados:</label>
+                                    <itx-checkbox ng-model="record.is_assets_arrested" is-disabled="disabled"
+                                        text-label="is_assets_arrested" />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Denuncia Necesaria:</label>
+                                    <itx-checkbox ng-model="record.is_complaint_necessary" is-disabled="disabled"
+                                        text-label="is_complaint_necessary" />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Denuncia Realizada:</label>
+                                    <itx-checkbox ng-model="record.is_complaint_made" is-disabled="disabled"
+                                        text-label="is_complaint_made" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label>Asistencia de Seguro:</label>
+                                    <itx-checkbox ng-model="record.is_ensuranse_assistance" is-disabled="disabled"
+                                        text-label="is_ensuranse_assistance" />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Presenta Documentos Reclamo:</label>
+                                    <itx-checkbox ng-model="record.is_claim_documents" is-disabled="disabled"
+                                        text-label="is_claim_documents" />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Motivo:</label>
+                                    <input type="text" class="form-control" placeholder="reason"
+                                        ng-model="record.reason">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Descripcion:</label>
+                                    <input type="text" class="form-control" placeholder="description"
+                                        ng-model="record.description">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- <div class="form-group col-md-3">
+                                    <label>user_mod:</label>
+                                    <input type="text" class="form-control" placeholder="user_mod"
+                                        ng-model="record.user_mod">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>date_mod:</label>
+                                    <div class="input-group">
+                                        <div my-datepicker ng-model="record.date_mod" dtp-enabled="enabled"></div>
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="form-group col-md-3">
+                                    <label>Activo:</label>
+                                    <itx-checkbox ng-model="record.active" is-disabled="disabled" text-label="active" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <uib-tabset active="active">
+                                        <uib-tab heading="Detalle Niños Involucrados" ng-attr-active="" ng-click="getHandsonRender(1)">
+                                            <div class="col-sm-12">
+                                                <hr/>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div ng-handson-table-directive data="handsondata" headers="handsonheaders"
+                                                cols="handsoncols"
+                                                after-change-fn="afterChangeFn(changes, source, datarow)"
+                                                after-on-cell-mouse-down-fn="afterOnCellMouseDownFn(datarow, colname, rowIndex, colIndex)"
+                                                after-selection-fn="afterSelectionFn(row, col)" size="250"
+                                                before-remove-row-fn="removeRow1(row, col, datarow)"
+                                                after-create-row-fn="addRow1(row)"
+                                                options="options"></div>
+                                            </div>                                            
+                                        </uib-tab>
+                                        <uib-tab heading="Detalle Personas Involucradas" ng-attr-active="" ng-click="getHandsonRender(2)">
+                                            <div class="col-sm-12">
+                                                <hr/>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div ng-handson-table-directive data="handsondata2" headers="handsonheaders2"
+                                                cols="handsoncols2"
+                                                after-change-fn="afterChangeFn(changes, source, datarow)"
+                                                after-on-cell-mouse-down-fn="afterOnCellMouseDownFn(datarow, colname, rowIndex, colIndex)"
+                                                after-selection-fn="afterSelectionFn(row, col)" size="250"
+                                                before-remove-row-fn="removeRow2(row, col, datarow)"
+                                                after-create-row-fn="addRow2(row)"
+                                                options="options2"></div>
+                                            </div>   
+                                        </uib-tab>
+                                        <uib-tab heading="Detalle de Activos" ng-attr-active="" ng-click="getHandsonRender(3)">
+                                            <div class="col-sm-12">
+                                                <hr/>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div ng-handson-table-directive data="handsondata3" headers="handsonheaders3"
+                                                cols="handsoncols3"
+                                                after-change-fn="afterChangeFn(changes, source, datarow)"
+                                                after-on-cell-mouse-down-fn="afterOnCellMouseDownFn(datarow, colname, rowIndex, colIndex)"
+                                                after-selection-fn="afterSelectionFn(row, col)" size="250"
+                                                before-remove-row-fn="removeRow3(row, col, datarow)"
+                                                after-create-row-fn="addRow3(row)"
+                                                options="options3"></div>
+                                            </div> 
+                                        </uib-tab>
+                                    </uib-tabset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </box-body>
+            <box-footer></box-footer>
+        </itx-box>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-warning" ng-click="close()">Cancelar</button>
+        <button type="button" class="btn btn-info" ng-click="save()">Aceptar</button>
+    </div>
+</div>

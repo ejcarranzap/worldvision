@@ -1,0 +1,104 @@
+.danger{
+  background: #dc3545!important;
+}
+.success {
+  background: #28a745!important;
+}
+.warning {
+  background: #ffc107!important;
+}
+.hidden {
+  display: none;
+}
+
+/*timeline*/
+ul.timeline {list-style-type:none;position: relative;}
+ul.timeline:before {content: ' ';background: #d4d9df;display: inline-block;position: absolute;
+left: 29px;width: 2px;height: 100%;z-index: 400;}
+ul.timeline>li {margin: 50px 0 !important;padding-left: 50px !important;}
+ul.timeline>li:before {content: ' ';background: white;display: inline-block;
+position: absolute;border-radius: 50%;border: 3px solid #22c0e8;left: 20px;
+width: 20px;height: 20px;z-index: 400;} 
+/*end timeline*/
+
+body{
+    overflow:auto!important;
+}
+
+@media print {
+    .no-print {
+      display: none!important;
+    }
+}
+
+.cls-descuadre {
+    background:red!important;
+    color:white!important;
+}
+
+.cls-cuadrado {
+    background:green!important;
+    color:white!important;
+}
+
+.my-cloak {
+  display: none!important;
+}
+.spacer{
+  margin-top: 5px;
+}
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background: #333 url('../images/loading.gif') no-repeat center center;
+  opacity: 0.5;
+}
+.modal-title{
+    font-size: 50px!important;
+    background-color: #F39C12!important;
+    margin: 0px!important;
+    padding: 5px!important;
+    color:white!important;
+    background: url('../images/logo.jpeg') right no-repeat;
+}
+.modal-default .modal-dialog {
+    width: 100%!important;
+    height: 100%!important;
+    padding: 0!important;
+    margin: 0!important;
+}
+.modal-default .modal-content {
+    height: 100%!important;
+    min-height: 100%!important;
+    height: auto!important;
+    border-radius: 0!important;
+    overflow-y: hidden;
+}
+
+
+.modal-default .modal-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.modal-default .modal-header{
+  margin: 5px!important;
+}
+.map-wrapper {
+    position: relative;
+    height: calc(80vh - 4em - 64px);
+}
+
+.angular-google-map-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}

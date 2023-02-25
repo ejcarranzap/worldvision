@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-md-12">
+        <itx-box box-type="">
+            <box-title>tbl_ad_segc_relation_type</box-title>
+            <box-body>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="filtroInput">Filtro</label>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" ng-model="record.q" id="filtroInput">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-info btn-new" ng-click="open(null,'lg','new')">Nuevo</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 box-body table-responsive no-padding">
+                    <div class="text-left">
+                        <dir-pagination-controls max-size="30" direction-links="true" boundary-links="true" template-url="app/view/dirPagination.tpl.html">
+                        </dir-pagination-controls>
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="fit">ID</th>
+                                <th >code</th>
+                                <th >name</th>
+                                <th >description</th>
+                                <th >user_mod</th>
+                                <th >date_mod</th>
+                                <th >active</th>
+                                <th class="text-right fit">Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-show="data.length <= 0">
+                                <td colspan="7" style="text-align:center;">No hay datos...</td>
+                            </tr>
+                            <tr ng-click="" dir-paginate="item in pivot_data | itemsPerPage:10">
+                                <td class="fit">{{item.Id_relation_type}}</td>
+                                <td >{{item.code}}</td>
+                                <td >{{item.name}}</td>
+                                <td >{{item.description}}</td>
+                                <td >{{item.user_mod}}</td>
+                                <td >{{item.date_mod}}</td>
+                                <td >{{item.active | SiNo }}</td>
+                                <td class="text-right fit">
+                                    <button class="btn btn-default" type="button" ng-click="open(item,'lg','edit')">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </box-body>
+            <box-footer>
+            </box-footer>
+        </itx-box>
+    </div>
+</div>

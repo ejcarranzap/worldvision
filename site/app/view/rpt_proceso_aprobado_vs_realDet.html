@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" ng-click="close()" aria-label="Close">
+        <span aria-hidden="true">?</span></button>
+      <h4 class="modal-title">Reporte Proceso Aprobado Vs Real</h4>
+    </div>
+    <div class="modal-body">
+      <itx-box box-type="">
+        <box-title></box-title>
+        <box-body>   
+            <!-- {{ node | json }} -->
+            <!-- {{ title_tree_activity }} -->
+            <div class="col-md-12 hidden">
+                  <my-tree-print data="tree" field-id="Id_activity" field-parent="Id_activity_parent" field-text="name" field-childs="childs" tree-options="tree_options2">
+                  </my-tree-print>
+                  <my-tree-print data="tree_" field-id="ID" field-parent="id_step_prev" field-text="activity" field-childs="childs" tree-options="tree_options">
+                  </my-tree-print>
+            </div>
+            <div class="col-md-12">
+              <table class="table table-bordered">
+                <thead>
+                  <tr style="background: #E65100">
+                    <th  colspan="{{ title_tree_activity.length+1+colspan_aux }}">Proceso</th>
+                  </tr>                  
+                </thead>
+                <tbody>
+                  <tr style="background: #EF6C00" ng-repeat="a in title_tree">
+                    <td colspan="{{ title_tree_activity.length+1+colspan_aux }}">{{ a.name }}</td>                    
+                  </tr>                  
+                  <tr style="background: #F57C00">
+                    <td ng-repeat="c in data_activity_act">{{ c.name }}</td>
+                    <td ng-if="colspan_aux > 0" colspan="{{ colspan_aux }}"></td>
+                    <td>Total Prog.</td>
+                  </tr>
+                  <tr style="background: #F57C00">
+                    <td ng-repeat="c in data_activity_act">{{ c.estimated_time*60*60 | secondToDateString}}</td>
+                    <td ng-if="colspan_aux > 0" colspan="{{ colspan_aux }}"></td>
+                    <td>{{ (data_activity_act | total: 'estimated_time': 60*60 ) | secondToDateString }}</td>
+                  </tr>
+                  <tr style="background: #FFB74D">
+                    <td ng-repeat="b in title_tree_activity">{{ b.activity }}</td>
+                    <td>Total Real.</td>
+                  </tr>
+                  <tr style="background: #FFB74D">
+                    <td ng-repeat="b in title_tree_activity">{{ b.elapsed_seconds  | secondToDateString }}</td>
+                    <td>{{ (title_tree_activity | total: 'elapsed_seconds')  | secondToDateString }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>            
+        </box-body>
+        <box-footer>
+        </box-footer>
+      </itx-box>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" ng-click="close()">Cancelar</button>
+    <!-- <button type="button" class="btn btn-info" ng-click="save()">Aceptar</button> -->
+  </div>

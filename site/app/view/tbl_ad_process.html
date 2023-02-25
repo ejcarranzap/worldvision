@@ -1,0 +1,76 @@
+<div class="row">
+  <!-- left column -->
+  <div class="col-md-12">
+    <!-- general form elements -->
+    <itx-box box-type="">
+      <box-title>{{ (_id == 1 ? 'Seguimiento' : 'Proceso') }}</box-title>
+      <box-body>
+          <div class="col-md-12">
+            <div class="form-group">
+                <label for="filtroInput">Filtro</label>
+                <div class="input-group input-group-sm">
+                <input type="text" class="form-control" ng-model="record.q" id="filtroInput">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-info btn-new" ng-click="open({ active: 1 },'lg','new')">Nuevo</button>
+                    </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 box-body table-responsive no-padding">
+            <div class="text-left">
+                <dir-pagination-controls max-size="30" direction-links="true" boundary-links="true" template-url="app/view/dirPagination.tpl.html">
+                </dir-pagination-controls>
+            </div>
+            <table class="table table-hover" my-table-sort data="pivot_data" sort-fields="sortFields">
+                <thead>
+                    <tr>
+                        <th class="fit">ID</th>
+                        <th>Titulo</th>
+                        <th>Objetivo</th>   
+                        <th>Actividad (Ant)</th>                     
+                        <th>Actividad</th>                     
+                        <th>Usuario</th>
+                        <th>T(Trans)</th>
+                        <th>T(Disp)</th>
+                        <!--<th>DATE_MOD</th>
+                        <th>USER_MOD</th>-->
+                        <th>Activo</th>
+                        <th class="text-right fit">Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-show="pivot_data.length <= 0">
+                        <td colspan="9" style="text-align:center;">No hay datos...</td>
+                    </tr>
+                    <tr ng-click="" dir-paginate="item in pivot_data | itemsPerPage:10">
+                        <td class="fit" ng-class="{danger: (item.status == 1), success: (item.status != 1), warning: (item.steps.length == 0)}">{{item.Id_process}}</td>
+                        <td>{{item.title}}</td>
+                        <td>{{item.target}}</td>   
+                        <td>{{item.activity_pred}}</td>                     
+                        <td>{{item.activity}}</td>
+                        <td>{{item.usuario}}</td>                     
+                        <td>{{item.elapsed_seconds | secondToDateString}}</td>                     
+                        <td>{{item.pending_seconds | secondToDateString}}</td>                     
+                        <!--<td>{{item.date_mod}}</td>
+                        <td>{{item.user_mod}}</td>-->
+                        <td>{{item.active | SiNo}}</td>
+                        <td class="text-right fit">
+                            <button class="btn btn-default" type="button" ng-click="open(item,'lg','edit')">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+      </box-body>
+      <box-footer>
+        <div class="col-md-1 col-md-offset-11">
+          <!--<button type="button" class="btn btn-primary" ng-click="getData()">Buscar</button>-->
+        </div>
+      </box-footer>
+    </itx-box>
+  </div>
+  <!--/.col (left) -->
+</div>
+<!-- /.row -->

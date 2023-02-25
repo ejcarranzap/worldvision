@@ -1,0 +1,84 @@
+<div class="row">
+  <!-- left column -->
+  <div class="col-md-12">
+    <!-- general form elements -->
+    <itx-box box-type="">
+      <box-title>Reparación</box-title>
+      <box-body>
+          <div class="col-md-12">
+            <div class="form-group">
+                <label for="filtroInput">Filtro</label>
+                <div class="input-group input-group-sm">
+                <input type="text" class="form-control" ng-model="record.q" id="filtroInput">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-info btn-new" ng-click="open(null,'lg','new')">Nuevo</button>
+                    </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 box-body table-responsive no-padding">
+            <div class="text-left">
+                <dir-pagination-controls max-size="30" direction-links="true" boundary-links="true" template-url="app/view/dirPagination.tpl.html">
+                </dir-pagination-controls>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="fit">ID</th>
+                        <th>Vehículo</th>
+                        <th>Proveedor</th>
+                        <th>Tipo</th>
+                        <th>Factura</th>
+                        <th>Precio</th>
+                        <th>Comentario</th>
+                        <th>Km Siguiente Servicio</th>
+                        <th>Km Actual</th>
+                        <th>Bitacora</th>
+                        <th>Limpio</th>
+                        <th>Combustible</th>
+                        <!--<th>DATE_MOD</th>
+                        <th>USER_MOD</th>-->
+                        <th>Activo</th>
+                        <th class="text-right fit">Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-show="data.length <= 0">
+                        <td colspan="16" style="text-align:center;">No hay datos...</td>
+                    </tr>
+                    <tr ng-click="" dir-paginate="item in pivot_data | itemsPerPage:10 | orderBy:Id_repair:reverse">
+                        <td class="fit">{{item.Id_repair}}</td>
+                        <td>{{item.tbl_ad_vehicle}}</td>
+                        <td>{{item.tbl_ad_supplier}}</td>
+                        <td>{{item.tbl_ad_maintenance_type}}</td>
+                        <td>{{item.invoice}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.comment}}</td>
+                        <td>{{item.mileage_service_next}}</td>
+                        <td>{{item.mileage_service_current}}</td>
+                        <td>{{item.has_history}}</td>
+                        <td>{{item.is_clean}}</td>
+                        <td>{{item.has_fuel}}</td>
+                        <!--<td>{{item.date_mod}}</td>
+                        <td>{{item.user_mod}}</td>-->
+                        <td>{{item.active | SiNo}}</td>
+                        <td class="text-right fit">
+                            <button class="btn btn-default" type="button" ng-click="open(item,'lg','edit')">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+      </box-body>
+      <box-footer>
+        <div class="col-md-1 col-md-offset-11">
+          <!--<button type="button" class="btn btn-primary" ng-click="getData()">Buscar</button>-->
+        </div>
+      </box-footer>
+    </itx-box>
+  </div>
+  <!--/.col (left) -->
+</div>
+<!-- /.row -->

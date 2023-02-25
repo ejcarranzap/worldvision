@@ -1,0 +1,90 @@
+<div class="row">
+	<div class="col-md-4">
+		<itx-box box-type="">
+		  <box-title></box-title>
+			<box-body>          
+			  <div class="col-md-12">
+					<!--<button type="submit" class="btn btn-primary" ng-click="checkAll(dataTreePivot,true)">Marcar</button>
+					<button type="submit" class="btn btn-primary" ng-click="checkAll(dataTreePivot,false)">Desmarcar</button>-->
+					<button type="submit" class="btn btn-primary" ng-click="expandAll(dataTreePivot,true)">Expandir</button>
+					<button type="submit" class="btn btn-primary" ng-click="expandAll(dataTreePivot,false)">Collapsar</button>
+			  </div>
+			  <div class="col-md-12">
+				<hr/>
+			  </div>
+			  <div class="col-md-12">
+				<input type="text" class="form-control" ng-model="record.qx" my-enter="fnFilter()">
+			  </div>
+			  <div class="col-md-12 box-body table-responsive no-padding;" style="min-height:400px; max-height:400px; overflow:scroll;">
+				<div my-tree-view data="dataTreePivot" handson-size="500" on-selection-change="onSelectionChange(event, data)" multi-select="false"></div>
+			  </div>
+			</box-body>
+		  <box-footer>
+			
+		  </box-footer>
+		</itx-box>
+	</div>
+	<div class="col-md-8">
+		<itx-box box-type="">
+			<box-title>
+				
+			</box-title>
+			<box-body>
+			  <div class="col-md-12 box-body table-responsive no-padding">
+				<div class="form-group col-md-4">
+					<label>ID:</label>
+					<input type="number" class="form-control" placeholder="" ng-model="record.Id_activity" disabled>
+				</div>
+				<div class="col-md-8">
+					<label>Pariente</label>
+					<itx-select ng-change="record.Id_activity_parent = record.cmbId_activity_parent.Id_activity" 
+					ng-model="record.cmbId_activity_parent"
+						  ng-options="(tbl_ad_activity.Id_activity+' - '+tbl_ad_activity.name) for tbl_ad_activity in tbl_ad_activity track by tbl_ad_activity.Id_activity">
+					</itx-select>
+				</div>
+				<div class="form-group col-md-12">
+					<label>Codigo:</label>
+					<input type="text" class="form-control" placeholder="" ng-model="record.code">
+				</div>
+				<div class="col-md-4">
+					<label>Tipo</label>
+					<itx-select ng-change="record.Id_process_type = record.cmbId_process_type.Id_process_type" 
+					ng-model="record.cmbId_process_type"
+						  ng-options="(item.Id_process_type+' - '+item.name) for item in tbl_ad_process_type track by item.Id_process_type">
+					</itx-select>
+				</div>
+				<div class="form-group col-md-8">
+					<label>Nombre:</label>
+					<input type="text" class="form-control" placeholder="" ng-model="record.name">
+				</div>
+				<div class="form-group col-md-4">
+					<label>Tiempo Est. (Hrs):</label>
+					<input type="number" class="form-control" placeholder="" ng-model="record.estimated_time">
+				</div>
+				<div class="form-group col-md-4">
+					<label>Orden:</label>
+					<input type="number" class="form-control" placeholder="" ng-model="record.order">
+				</div>
+				<div class="form-group col-md-2">
+						  <label></label>
+						  <itx-checkbox ng-model="record.active" is-disabled="disabled" text-label="Activo" />
+				</div>
+				<div class="form-group col-md-2">
+					<label></label>
+					<itx-checkbox ng-model="record.is_end" is-disabled="disabled" text-label="Finalizador" />
+		  		</div>
+				<div class="form-group col-md-12">
+					<label>Descripción:</label>
+					<input type="text" class="form-control" placeholder="" ng-model="record.description">
+				</div>
+				
+			  </div>
+		  </box-body>
+		  <box-footer>
+			<button type="button" class="btn btn-warning" ng-click="cancel()">Cancelar</button>
+			<button type="button" class="btn btn-info" ng-click="save()">Aceptar</button>
+		  </box-footer>
+		</itx-box>
+	</div>
+  </div>
+</div>

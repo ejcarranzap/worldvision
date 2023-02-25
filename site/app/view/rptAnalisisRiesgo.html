@@ -1,0 +1,138 @@
+<div class="row" id="rptVehicleCard">
+    <!-- left column -->
+    <div class="col-md-12">
+      <!-- general form elements -->
+      <itx-box box-type="">
+        <box-title>Analisis de Riesgo</box-title>
+        <box-body>
+          <div class="col-md-12">
+            <!--<div class="form-group  col-md-3">
+                        <label>Vehículo</label>
+                        <itx-select ng-change="record.Id_vehicle = record.cmbId_vehicle.Id_vehicle" ng-model="record.cmbId_vehicle"
+                        ng-options="tbl_ad_vehicle.vehiculo for tbl_ad_vehicle in tbl_ad_vehicles track by tbl_ad_vehicle.Id_vehicle"></itx-select>
+              </div>-->
+            <!--<div class="form-group  col-md-6">
+                        <label>Ubicación:</label>
+                        <itx-select ng-change="record.Id_location = record.cmbId_location.Id_location" ng-model="record.cmbId_location"
+                        ng-options="tbl_ad_location.name for tbl_ad_location in tbl_ad_locations track by tbl_ad_location.Id_location"></itx-select>
+              </div>-->
+            <!-- <div class="form-group  col-md-3">
+              <label>Ubicación:{{record.Id_location}}</label>
+              <multi-select-tree data-input-model="data2" multi-select="false" data-output-model="record.cmbId_locationx" data-default-label="Click here to Select..."
+                data-callback="selectOnly1Or2(item, selectedItems)"></multi-select-tree>
+            </div> -->
+            <div class="form-group col-md-3 no-print">
+              <label>Inicio:</label>
+              <div class="input-group">
+                <div my-datepicker ng-model="record.start_date" dtp-enabled="enabled"></div>
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-3 no-print">
+              <label>Fin:</label>
+              <div class="input-group">
+                <div my-datepicker ng-model="record.end_date" dtp-enabled="enabled"></div>
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 no-print">
+              <div class="form-group  col-md-1">
+                  <button type="button" class="btn btn-info no-print" ng-click="getData()">Consultar</button>
+              </div>
+              <div class="form-group  col-md-1">
+                  <button type="button" class="btn btn-info no-print" my-print-div div-name="rptVehicleCard">Imprimir</button>
+              </div>
+          </div>
+          <div class="col-md-12">
+            <hr/>
+          </div>
+          <div class="col-md-12 no-print">
+            <div class="form-group">
+              <label for="filtroInput">Filtro</label>
+              <div class="input-group input-group-sm">
+                <input type="text" class="form-control" ng-model="record.q" id="filtroInput">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-info btn-new">Nuevo</button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 box-body table-responsive no-padding"  ng-repeat="enca in pivot_data">
+            <div class="col-md-12">
+                <table class="table">
+                    <tbody>
+                      <td ng-repeat="col in getColumns(enca, 'E')">{{col}}: {{enca[col]}}</td>
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col-md-12">
+                <hr>
+            </div>
+            <div class="col-md-12" ng-if="enca.deta1.length > 0">
+                <h3>Detalle Niños Involucrados</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="d1 in getColumns(enca.deta1[0], 'D1')">{{d1}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="dr1 in enca.deta1">
+                            <td ng-repeat="dc1 in getColumns(enca.deta1[0],'D1')">{{ dr1[dc1] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <hr>
+            </div>
+            <div class="col-md-12" ng-if="enca.deta2.length > 0">
+                <h3>Detalle Personas Involucradas</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="d2 in getColumns(enca.deta2[0], 'D2')">{{d2}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="dr2 in enca.deta2">
+                            <td ng-repeat="dc2 in getColumns(enca.deta2[0],'D2')">{{ dr2[dc2] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <hr>
+            </div>
+            <div class="col-md-12" ng-if="enca.deta3.length > 0">
+                <h3>Detalle de Activos</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="d3 in getColumns(enca.deta3[0], 'D3')">{{d3}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="dr3 in enca.deta3">
+                            <td ng-repeat="dc3 in getColumns(enca.deta3[0],'D3')">{{ dr3[dc3] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </box-body>
+        <box-footer>
+          <div class="col-md-1 col-md-offset-11">
+            <!--<button type="button" class="btn btn-primary" ng-click="getData()">Buscar</button>-->
+          </div>
+        </box-footer>
+      </itx-box>
+    </div>
+    <!--/.col (left) -->
+  </div>
+  <!-- /.row -->

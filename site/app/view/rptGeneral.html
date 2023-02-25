@@ -1,0 +1,181 @@
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <itx-box box-type="">
+            <box-title>Reportes</box-title>
+            <box-body>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-12">
+                            <label>Factura:</label>
+                            <input type="number" class="form-control" placeholder="Factura" ng-model="factura.Id_venta">
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-default" type="button" ng-click="open(factura,'lg','/server/main/report1', 'FACTURA')">
+                                <span class="glyphicon glyphicon-print">Factura</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr/>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-12">
+                            <label>Recibo:</label>
+                            <input type="number" class="form-control" placeholder="Recibo" ng-model="recibo.Id_venta">
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-default" type="button" ng-click="open(recibo,'lg','/server/main/report1','RECIBO')">
+                                <span class="glyphicon glyphicon-print">Recibo</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr/>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-2">
+                            <label>Fecha Inicio:</label>
+                            <div class="input-group">
+                                <div my-datepicker ng-model="venta.fecha_inicio" dtp-enabled="enabled"></div>
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Fecha Fin:</label>
+                            <div class="input-group">
+                                <div my-datepicker ng-model="venta.fecha_fin" dtp-enabled="enabled"></div>
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-default" type="button" ng-click="open(venta,'lg','/server/main/report1','VENTA')">
+                                <span class="glyphicon glyphicon-print">Venta</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr/>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-2">
+                            <label>Fecha Inicio:</label>
+                            <div class="input-group">
+                                <div my-datepicker ng-model="abono.fecha_inicio" dtp-enabled="enabled"></div>
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Fecha Fin:</label>
+                            <div class="input-group">
+                                <div my-datepicker ng-model="abono.fecha_fin" dtp-enabled="enabled"></div>
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-default" type="button" ng-click="open(abono,'lg','/server/main/report1','ABONO')">
+                                <span class="glyphicon glyphicon-print">Abono</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr/>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-12">
+                            <label>Corde de Caja:</label>
+                            <itx-select ng-change="cajachica.cajachica = cajachica.cmbId_caja_chica.codigo" ng-model="cajachica.cmbId_caja_chica" ng-options="(cajachica.codigo+' '+cajachica.nombre) for cajachica in data track by cajachica.Id_caja_chica"></itx-select>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-default" type="button" ng-click="open(cajachica,'lg','/server/main/report1','CAJACHICA')">
+                                <span class="glyphicon glyphicon-print">Corte de Caja</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr/>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-12">
+                            <label>Kardex:</label>
+                            <input type="number" class="form-control" placeholder="Cantidad Inicial" ng-model="kardex.cantidadInicial">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Fecha Inicio:</label>
+                            <div class="input-group">
+                                <div my-datepicker ng-model="kardex.fecha_inicio" dtp-enabled="enabled"></div>
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Fecha Fin:</label>
+                            <div class="input-group">
+                                <div my-datepicker ng-model="kardex.fecha_fin" dtp-enabled="enabled"></div>
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-default" type="button" ng-click="open(kardex,'lg','/server/main/report1','KARDEX')">
+                                <span class="glyphicon glyphicon-print">Kardex</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr/>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <button class="btn btn-default" type="button" ng-click="open(cuentacorriente,'lg','/server/main/report1','CUENTACORRIENTE')">
+                                <span class="glyphicon glyphicon-print">Cuenta Corriente</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr/>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <button class="btn btn-default" type="button" ng-click="open(clientemoroso,'lg','/server/main/report1','CLIENTEMOROSO')">
+                                <span class="glyphicon glyphicon-print">Cliente Moroso</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </box-body>
+            <box-footer>
+                <div class="col-md-1 col-md-offset-11">
+                    <!--<button type="button" class="btn btn-primary" ng-click="getData()">Buscar</button>-->
+                </div>
+            </box-footer>
+        </itx-box>
+    </div>
+    <!--/.col (left) -->
+</div>
+<!-- /.row -->

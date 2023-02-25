@@ -1,0 +1,132 @@
+<div class="row">
+  <!-- left column -->
+  <div class="col-md-12">
+    <!-- general form elements -->
+    <itx-box box-type="">
+      <box-title>Vehículo</box-title>
+      <box-body>
+          <div class="col-md-12">
+            <div class="form-group">
+                <label for="filtroInput">Filtro</label>
+                <div class="input-group input-group-sm">
+                <input type="text" class="form-control" ng-model="record.q" id="filtroInput">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-info btn-new" ng-click="open(null,'lg','new')">Nuevo</button>
+                    </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 box-body table-responsive no-padding">
+            <div class="text-left">
+                <dir-pagination-controls max-size="30" direction-links="true" boundary-links="true" template-url="app/view/dirPagination.tpl.html">
+                </dir-pagination-controls>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="fit">ID</th>
+                        <th>Placa</th>
+                        <th>No.</th>
+                        <th>Ubicación</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Tipo</th>
+                        <th>Año</th>
+                        <th>Color</th>
+                        <th>Responsable</th>
+                        <th>Estado</th>
+                        <th>Estado Inv.</th>
+                        <!--<th>Proveedor</th>
+                        <th>Codigo</th>
+                        <th>Poliza</th>
+                        <th>Comentario</th>
+                        <th>Km Servicio</th>
+                        <th>Km Alerta</th>
+                        <th>Km Actual</th>
+                        <th>Km Ultima Lectura</th>
+                        <th>Km Servicio Realizado</th>
+                        <th>Fecha Servicio Realizado</th>
+                        <th>Km Servicio Siguiente</th>
+                        <th>Precio</th>
+                        <th>Depreciación</th>
+                        <th>Tarjeta de Circulación</th>
+                        <th>Titulo</th>
+                        <th>Motor</th>
+                        <th>Chasis</th>
+                        <th>Fecha Baja</th>
+                        <th>IMAGE1</th>
+                        <th>IMAGE2</th>
+                        <th>IMAGE3</th>
+                        <th>IMAGE4</th>
+                        <th>IMAGE5</th>
+                        <th>IMAGE6</th>
+                        <th>DATE_MOD</th>
+                        <th>USER_MOD</th>-->
+                        <th>Activo</th>
+                        <th class="text-right fit">Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-show="data.length <= 0">
+                        <td colspan="38" style="text-align:center;">No hay datos...</td>
+                    </tr>
+                    <tr ng-click="" dir-paginate="item in pivot_data | itemsPerPage:10">
+                        <td class="fit">{{item.Id_vehicle}}</td>
+                        <td>{{item.code}}</td>
+                        <td>{{item.vehicle_number}}</td>
+                        <td>{{item.tbl_ad_location}}</td>
+                        <td>{{item.tbl_ad_make}}</td>
+                        <td>{{item.tbl_ad_model}}</td>
+                        <td>{{item.tbl_ad_type}}</td>
+                        <td>{{item.tbl_ad_year}}</td>
+                        <td>{{item.tbl_ad_color}}</td>
+                        <td>{{item.tbl_ad_manager}}</td>
+                        <td>{{item.tbl_ad_state}}</td>
+                        <td>{{item.tbl_ad_inventory_state}}</td>
+                        <!--<td>{{item.tbl_ad_supplier}}</td>
+                        <td>{{item.code}}</td>
+                        <td>{{item.policy}}</td>
+                        <td>{{item.comment}}</td>
+                        <td>{{item.mileage_service}}</td>
+                        <td>{{item.mileage_alert}}</td>
+                        <td>{{item.mileage_current}}</td>
+                        <td>{{item.mileage_date_read}}</td>
+                        <td>{{item.mileage_service_applied}}</td>
+                        <td>{{item.mileage_service_applied_date}}</td>
+                        <td>{{item.mileage_service_next}}</td>
+                        <td>{{item.purchace_price}}</td>
+                        <td>{{item.depreciation}}</td>
+                        <td>{{item.circulation_card}}</td>
+                        <td>{{item.title}}</td>
+                        <td>{{item.engine}}</td>
+                        <td>{{item.chassis}}</td>
+                        <td>{{item.inactivation_date}}</td>
+                        <td>{{item.image1}}</td>
+                        <td>{{item.image2}}</td>
+                        <td>{{item.image3}}</td>
+                        <td>{{item.image4}}</td>
+                        <td>{{item.image5}}</td>
+                        <td>{{item.image6}}</td>
+                        <td>{{item.date_mod}}</td>
+                        <td>{{item.user_mod}}</td>-->
+                        <td>{{item.active | SiNo}}</td>
+                        <td class="text-right fit">
+                            <button class="btn btn-default" type="button" ng-click="open(item,'lg','edit')">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+      </box-body>
+      <box-footer>
+        <div class="col-md-1 col-md-offset-11">
+          <!--<button type="button" class="btn btn-primary" ng-click="getData()">Buscar</button>-->
+        </div>
+      </box-footer>
+    </itx-box>
+  </div>
+  <!--/.col (left) -->
+</div>
+<!-- /.row -->

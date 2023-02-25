@@ -1,0 +1,102 @@
+<div class="row">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="close()" aria-label="Close">
+      <span aria-hidden="true">?</span></button>
+    <h4 class="modal-title">Neumatico</h4>
+  </div>
+  <div class="modal-body">
+    <itx-box box-type="">
+      <box-title></box-title>
+      <box-body>
+        <div class="row">
+          <div class="col-md-12">
+            <form role="form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label>ID:</label>
+                  <input type="number" class="form-control" placeholder="ID_TIRE" ng-model="record.Id_tire" disabled>
+                </div>
+                <div class="form-group  col-md-6">
+                  <label>Vehículo</label>
+                  <itx-select ng-change="record.Id_vehicle = record.cmbId_vehicle.Id_vehicle" ng-model="record.cmbId_vehicle" ng-options="tbl_ad_vehicle.vehiculo for tbl_ad_vehicle in tbl_ad_vehicles track by tbl_ad_vehicle.Id_vehicle"></itx-select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label>Factura:</label>
+                  <input type="text" class="form-control" placeholder="INVOICE" ng-model="record.invoice">
+                </div>
+                <div class="form-group col-md-4">
+                  <label>Fecha Compra:</label>
+                  <div class="input-group">
+                    <div my-datepicker ng-model="record.purchace_date" dtp-enabled="enabled"></div>
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group  col-md-4">
+                  <label>Proveedor</label>
+                  <itx-select ng-change="record.Id_supplier = record.cmbId_supplier.Id_supplier" ng-model="record.cmbId_supplier" ng-options="tbl_ad_supplier.name for tbl_ad_supplier in tbl_ad_suppliers track by tbl_ad_supplier.Id_supplier"></itx-select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-6">
+                  <label>Moneda</label>
+                  <itx-select ng-change="record.Id_currency = record.cmbId_currency.Id_currency" ng-model="record.cmbId_currency" ng-options="tbl_ad_currency.name for tbl_ad_currency in tbl_ad_currencys track by tbl_ad_currency.Id_currency"></itx-select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Precio:</label>
+                  <input type="text" class="form-control" placeholder="PRICE" ng-model="record.price">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-6">
+                  <label>Marca</label>
+                  <itx-select ng-change="record.Id_tire_make = record.cmbId_tire_make.Id_tire_make" ng-model="record.cmbId_tire_make" ng-options="tbl_ad_tire_make.name for tbl_ad_tire_make in tbl_ad_tire_makes track by tbl_ad_tire_make.Id_tire_make"></itx-select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Rin:</label>
+                  <input type="text" class="form-control" placeholder="RIN" ng-model="record.rin">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label>Kms:</label>
+                  <input type="number" class="form-control" placeholder="MILEAGE" ng-model="record.mileage">
+                </div>
+                <div class="form-group col-md-12">
+                  <label>Comentario:</label>
+                  <input type="text" class="form-control" placeholder="COMMENT" ng-model="record.comment">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Fecha Baja:</label>
+                  <div class="input-group">
+                    <div my-datepicker ng-model="record.inactivation_date" dtp-enabled="enabled"></div>
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label></label>
+                    <itx-checkbox ng-model="record.active" is-disabled="disabled" text-label="Activo" />
+                  </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <uib-tabset active="active">
+          </uib-tabset>
+        </div>
+      </box-body>
+      <box-footer>
+      </box-footer>
+    </itx-box>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" ng-click="close()">Cancelar</button>
+    <button type="button" class="btn btn-info" ng-click="save()">Aceptar</button>
+  </div>
+</div>

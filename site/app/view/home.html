@@ -1,0 +1,107 @@
+<div class="row">
+  <div class="col-sm-12">
+		<button type="submit" class="btn btn-primary" ng-click="checkAll(dataTreePivot,true)">Check All</button>
+		<button type="submit" class="btn btn-primary" ng-click="checkAll(dataTreePivot,false)">UnCheck All</button>
+		<button type="submit" class="btn btn-primary" ng-click="expandAll(dataTreePivot,true)">Expand All</button>
+		<button type="submit" class="btn btn-primary" ng-click="expandAll(dataTreePivot,false)">Collapse All</button>
+  </div>	
+  <div class="col-sm-12">
+	<input type="text" class="form-control" ng-model="qx">
+  </div>
+  <div class="col-md-12">
+		<div my-tree-view data="dataTreePivot" handson-size="500" on-selection-change="onSelectionChange(event, data)" multi-select=""></div>
+  </div>
+  <!-- right column -->
+  <div class="col-md-12">
+    <!-- general form elements -->
+    <itx-box box-type="success">
+      <box-title>Handsontable</box-title>
+      <box-body>
+        <div class="col-sm-12">
+          <div handsontable event-trigger="TriggerLoadData" data="data" headers="headers" merge-cells="mergeCells" on-cell-change-fn="onCellChange(changes, source, datarow)" on-cell-click-fn="onCellClick(datarow, colname, rowIndex, colIndex)" handson-size="175">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <label>Cuenta</label>
+          <my-search-field-easy-two is-disabled="false" fn-key-press="" ng-model="record.combocmb" ng-change="record.combo = record.combocmb.id" arr-search="items" arr-render-fields="renderfields" arr-fields="fields"></my-search-field-easy-two>
+        </div>
+        <div class="col-md-3">
+          {{errorMsg | json}}
+          <div ngf-select="uploadFiles($file, $invalidFiles, 1)" ngf-drop type="file" ngf-accept="'image/*,video/*'" max-size="20MB" value="Upload">
+            <img width="100" height="100" class="img-responsive img-radio" check-image ng-src="{{filepath}}{{record.archivo | randomSrc}}" />
+          </div>
+          <button fancybox ng-click="openFancybox(record.archivo)" type="button" class="btn btn-primary btn-radio">Ver Tamaño Normal</button>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Intl US phone mask:</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-phone"></i>
+              </div>
+              <input type="text" class="form-control" ui-mask="(999) 9999-9999" ng-model="record.telefono">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div my-datepicker ng-model="record.fecha_fin"></div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Time picker:</label>
+
+            <div class="input-group">
+              <div my-timepicker ng-model="record.hora"></div>
+
+              <div class="input-group-addon">
+                <i class="fa fa-clock-o"></i>
+              </div>
+            </div>
+            <!-- /.input group -->
+          </div>
+        </div>
+      </box-body>
+      <box-footer>
+        Footer
+      </box-footer>
+    </itx-box>
+  </div>
+  <!--/.col (right) -->
+  <!-- left column -->
+  <div class="col-md-12">
+    <!-- general form elements -->
+    <itx-box box-type="danger">
+      <box-title>Quick Example</box-title>
+      <box-body>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" ng-model="record.loginuser" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" ng-model="record.password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" id="exampleInputFile">
+
+          <p class="help-block">Example block-level help text here.</p>
+        </div>
+        <itx-checkbox ng-model="checkboxValue" is-disabled="disabled" text-label="Remember me" />
+        <div class="form-group">
+          <label>Minimal{{items | json}}</label>
+          <itx-select ng-model="selectValue" is-disabled="disabled" ng-options="item as item.name for item in items track by item.id" />
+        </div>
+        <!-- radio -->
+        <div class="form-group">
+
+        </div>
+      </box-body>
+      <box-footer>
+        <button type="submit" class="btn btn-primary" ng-click="enableCheckbox()">Submit</button>
+      </box-footer>
+    </itx-box>
+  </div>
+  <!--/.col (left) -->
+</div>
+<!-- /.row -->

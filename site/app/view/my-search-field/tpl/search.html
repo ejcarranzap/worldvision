@@ -1,0 +1,36 @@
+<div class="modal-header ng-scope">
+    <button type="button" class="close" ng-click="cancel();" aria-hidden="true">×</button>
+    <h4 class="modal-title">Busqueda</h4>
+</div>
+<div class="modal-body ng-scope">
+    <div class="panel-body">
+        <form>
+            <div class="col-md-12">
+                <label>Filtro</label>
+                <input type="text" ng-model="q" class="form-control input-sm" placeholder="">
+            </div>
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered dataTable table-hover">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="field in fields">{{field.title}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-show="data.data.length <= 0">
+                            <td colspan="3" style="text-align:center;">Loading new data!!</td>
+                        </tr>
+                        <tr ng-click="setSelection(item)" dir-paginate="item in data.data | itemsPerPage:data.itemsPerPage" total-items="data.total_count">
+                            <td ng-repeat="field in fields">{{item[field.field]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dir-pagination-controls max-size="1" direction-links="true" boundary-links="true" on-page-change="data.getData(newPageNumber, q)">
+                </dir-pagination-controls>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer ng-scope">
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+</div>

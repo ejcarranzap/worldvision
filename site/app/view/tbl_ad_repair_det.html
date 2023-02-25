@@ -1,0 +1,106 @@
+<div class="row">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="close()" aria-label="Close">
+    <span aria-hidden="true">?</span></button>
+    <h4 class="modal-title">Reparación</h4>
+  </div>
+  <div class="modal-body">
+    <itx-box box-type="">
+      <box-title></box-title>
+      <box-body>
+        <div class="row">
+          <div class="col-md-12">
+            <form role="form">
+              <div class="row">
+                <div class="form-group col-md-3">
+                      <label>ID:</label>
+                      <input type="number" class="form-control" placeholder="ID_REPAIR" ng-model="record.Id_repair" disabled>
+                </div>
+                <div class="form-group  col-md-3">
+                      <label>Vehículo</label>
+                      <itx-select ng-change="record.Id_vehicle = record.cmbId_vehicle.Id_vehicle" ng-model="record.cmbId_vehicle"
+                      ng-options="tbl_ad_vehicle.vehiculo for tbl_ad_vehicle in tbl_ad_vehicles track by tbl_ad_vehicle.Id_vehicle"></itx-select>
+                </div>
+                <div class="form-group  col-md-3">
+                      <label>Proveedor</label>
+                      <itx-select ng-change="record.Id_supplier = record.cmbId_supplier.Id_supplier" ng-model="record.cmbId_supplier"
+                      ng-options="tbl_ad_supplier.name for tbl_ad_supplier in tbl_ad_suppliers track by tbl_ad_supplier.Id_supplier"></itx-select>
+                </div>
+                <div class="form-group  col-md-3">
+                      <label>Tipo</label>
+                      <itx-select ng-change="record.Id_maintenance_type = record.cmbId_maintenance_type.Id_maintenance_type" ng-model="record.cmbId_maintenance_type"
+                      ng-options="tbl_ad_maintenance_type.name for tbl_ad_maintenance_type in tbl_ad_maintenance_types track by tbl_ad_maintenance_type.Id_maintenance_type"></itx-select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                      <label>Factura:</label>
+                      <input type="text" class="form-control" placeholder="INVOICE" ng-model="record.invoice">
+                </div>
+                <div class="form-group col-md-3">
+                      <label>Price:</label>
+                      <input type="text" class="form-control" placeholder="PRICE" ng-model="record.price">
+                </div>
+                <div class="form-group col-md-3">
+                      <label>Comentario:</label>
+                      <input type="text" class="form-control" placeholder="COMMENT" ng-model="record.comment">
+                </div>
+                <div class="form-group col-md-3">
+                      <label>Km Siguiente Servicio:</label>
+                      <input type="number" class="form-control" placeholder="MILEAGE_SERVICE_NEXT" ng-model="record.mileage_service_next">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                      <label>Km Actual:</label>
+                      <input type="number" class="form-control" placeholder="MILEAGE_SERVICE_CURRENT" ng-model="record.mileage_service_current">
+                </div>
+                <div class="form-group col-md-3">
+                      <label>Bitacora:</label>
+                      <input type="number" class="form-control" placeholder="HAS_HISTORY" ng-model="record.has_history">
+                </div>
+                <div class="form-group col-md-3">
+                      <label>Limpio:</label>
+                      <input type="number" class="form-control" placeholder="IS_CLEAN" ng-model="record.is_clean">
+                </div>
+                <div class="form-group col-md-3">
+                      <label>Combustible:</label>
+                      <input type="number" class="form-control" placeholder="HAS_FUEL" ng-model="record.has_fuel">
+                </div>
+              </div>
+              <div class="row">
+                <!--<div class="form-group col-md-3">
+                      <label>DATE_MOD:</label>
+                      <div class="input-group">
+                        <div my-datepicker ng-model="record.date_mod" dtp-enabled="enabled"></div>
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                      </div>
+                </div>
+                <div class="form-group col-md-3">
+                      <label>USER_MOD:</label>
+                      <input type="text" class="form-control" placeholder="USER_MOD" ng-model="record.user_mod">
+                </div>-->
+                <div class="form-group col-md-3">
+					  <label></label>
+					  <itx-checkbox ng-model="record.active" is-disabled="disabled" text-label="Activo" />
+				</div>
+              </div>
+            </form>
+          </div>
+        </div>
+    <div class="col-sm-12">
+     <uib-tabset active="active">
+     </uib-tabset>
+    </div>
+      </box-body>
+      <box-footer>
+      </box-footer>
+  </itx-box>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" ng-click="close()">Cancelar</button>
+    <button type="button" class="btn btn-info" ng-click="save()">Aceptar</button>
+  </div>
+</div>

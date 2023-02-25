@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="close()" aria-label="Close">
+    <span aria-hidden="true">?</span></button>
+    <h4 class="modal-title">Ubicación</h4>
+  </div>
+  <div class="modal-body">
+    <itx-box box-type="">
+      <box-title></box-title>
+      <box-body>
+        <div class="row">
+          <div class="col-md-12">
+            <form role="form">
+              <div class="row">
+                <div class="form-group col-md-3">
+                      <label>ID:</label>
+                      <input type="number" class="form-control" placeholder="ID_LOCATION" ng-model="record.Id_location" disabled>
+                </div>
+                <div class="form-group  col-md-3">
+                      <label>Pariente</label>
+                      <itx-select ng-change="record.Id_location_parent = record.cmbId_location_parent.Id_location_parent" ng-model="record.cmbId_location_parent"
+                      ng-options="tbl_ad_location.name for tbl_ad_location in tbl_ad_locations track by tbl_ad_location.Id_location_parent"></itx-select>
+                </div>
+                <div class="form-group  col-md-3">
+                      <label>Tipo</label>
+                      <itx-select ng-change="record.Id_location_type = record.cmbId_location_type.Id_location_type" ng-model="record.cmbId_location_type"
+                      ng-options="tbl_ad_location_type.name for tbl_ad_location_type in tbl_ad_location_types track by tbl_ad_location_type.Id_location_type"></itx-select>
+                </div>
+                <div class="form-group col-md-3">
+                      <label>Codigo:</label>
+                      <input type="text" class="form-control" placeholder="CODE" ng-model="record.code">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                      <label>Nombre:</label>
+                      <input type="text" class="form-control" placeholder="NAME" ng-model="record.name">
+                </div>
+                <div class="form-group col-md-3">
+                      <label>Latitud:</label>
+                      <input type="text" class="form-control" placeholder="LAT" ng-model="record.lat">
+                </div>
+                <div class="form-group col-md-3">
+                      <label>Longitud:</label>
+                      <input type="text" class="form-control" placeholder="LON" ng-model="record.lon">
+                </div>
+                <!--<div class="form-group col-md-3">
+                      <label>DATE_MOD:</label>
+                      <div class="input-group">
+                        <div my-datepicker ng-model="record.date_mod" dtp-enabled="enabled"></div>
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                      </div>
+                </div>-->
+              </div>
+              <div class="row">
+                <!--<div class="form-group col-md-3">
+                      <label>USER_MOD:</label>
+                      <input type="text" class="form-control" placeholder="USER_MOD" ng-model="record.user_mod">
+                </div>-->
+                <div class="form-group col-md-3">
+					  <label></label>
+					  <itx-checkbox ng-model="record.active" is-disabled="disabled" text-label="Activo" />
+				</div>
+              </div>
+            </form>
+          </div>
+        </div>
+    <div class="col-sm-12">
+     <uib-tabset active="active">
+     </uib-tabset>
+    </div>
+      </box-body>
+      <box-footer>
+      </box-footer>
+  </itx-box>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" ng-click="close()">Cancelar</button>
+    <button type="button" class="btn btn-info" ng-click="save()">Aceptar</button>
+  </div>
+</div>
