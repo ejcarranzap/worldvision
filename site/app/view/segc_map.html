@@ -1,0 +1,60 @@
+<div class="row" id="rptVehicleCard">
+    <!-- left column -->
+    <div class="col-md-12">
+      <!-- general form elements -->
+      <itx-box box-type="">
+        <box-title>Mapa Geoposicion</box-title>
+        <box-body>
+          <div class="col-md-12">
+            <div class="form-group col-md-2">
+                <label>Fecha Inicio:</label>
+                <div class="input-group">
+                    <div my-datepicker ng-model="record.FECHAINICIO" dtp-enabled="enabled"></div>
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <label>Fecha Fin:</label>
+                <div class="input-group">
+                    <div my-datepicker ng-model="record.FECHAFIN" dtp-enabled="enabled"></div>
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4  no-print">
+                <label>Usuario</label>
+                <itx-select ng-change="record.USER = record.cmbId_user.username" ng-model="record.cmbId_user"
+                  ng-options="(item.Id_user+' - '+item.name) for item in data_user track by item.Id_user">
+                </itx-select>
+            </div>
+            <div class="form-group col-md-2">
+                <label></label>
+                <itx-checkbox ng-model="record.active" is-disabled="disabled" text-label="Tiempo Real" />
+              </div>
+              <div class="col-md-2">
+                <button type="button" class="btn btn-info" ng-click="search()" style="margin-top:25px;">Consultar</button>
+              </div>
+          </div>
+          <!-- <div class="col-md-12">
+            {{data | json}}
+          </div> -->
+          <div class="col-md-12">
+            <div class="map-wrapper">
+                <ui-gmap-google-map center="map.center" options="options" zoom="map.zoom" styles="styledMapType">
+                </ui-gmap-google-map>
+            </div>
+          </div>
+        </box-body>
+        <box-footer>
+          <div class="col-md-1 col-md-offset-11">
+            <!--<button type="button" class="btn btn-primary" ng-click="getData()">Buscar</button>-->
+          </div>
+        </box-footer>
+      </itx-box>
+    </div>
+    <!--/.col (left) -->
+  </div>
+  <!-- /.row -->

@@ -83,6 +83,13 @@
 					requireLogin: true
 				}
 			})
+			.when('/segc_map', {
+				templateUrl: 'app/view/segc_map.html',
+				controller: 'segc_mapCtrl',
+				data: {
+					requireLogin: true
+				}
+			})
 			.when('/rptAnalisisRiesgo', {
 				templateUrl: 'app/view/rptAnalisisRiesgo.html',
 				controller: 'rptAnalisisRiesgoCtrl',
