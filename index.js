@@ -1,7 +1,7 @@
 'use strict';
 
 const Hapi = require('hapi');
-const server = new Hapi.Server();
+const server = new Hapi.Server({ connections: { routes: { timeout: { server: 500000 * 9, socket: 500000 * 10 } }, state: { strictHeader: false } } });
 const Inert = require('inert');
 const Cookie = require('hapi-auth-cookie');
 const glob = require('glob');
