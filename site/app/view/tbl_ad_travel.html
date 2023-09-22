@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-md-12">
+        <itx-box box-type="">
+            <box-title>Autorizacion de Viaje</box-title>
+            <box-body>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="filtroInput">Filtro</label>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" ng-model="record.q" id="filtroInput">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-info btn-new" ng-click="open(null,'lg','new')">Nuevo</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 box-body table-responsive no-padding">
+                    <div class="text-left">
+                        <dir-pagination-controls max-size="30" direction-links="true" boundary-links="true" template-url="app/view/dirPagination.tpl.html">
+                        </dir-pagination-controls>
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="fit">ID</th>
+                                <th >Vehicle</th>
+                                <th >Date Start</th>
+                                <th >Date End</th>
+                                <th >Source</th>
+                                <th >Destination</th>
+                                <th >Mileage Start</th>
+                                <th >Mileage End</th>
+                                <th >Driver</th>
+                                <th >Comment</th>
+                                <th >State</th>
+                                <th >Applicant Firstname</th>
+                                <th >Applicant Lastname</th>
+                                <th >Applicant UID</th>
+                                <th >Pilot Firstname</th>
+                                <th >Pilot Lastname</th>
+                                <th >Pilot UID</th>
+                                <th >Pilot Superior</th>
+                                <th >Policy Exception</th>
+                                <!-- <th >date_mod</th>
+                                <th >user_mod</th>
+                                <th >active</th> -->
+                                <th class="text-right fit">Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-show="data.length <= 0">
+                                <td colspan="22" style="text-align:center;">No hay datos...</td>
+                            </tr>
+                            <tr ng-click="" dir-paginate="item in pivot_data | itemsPerPage:10">
+                                <td class="fit">{{item.Id_travel}}</td>
+                                <td >{{item.tbl_ad_vehicle}}</td>
+                                <td >{{item.start_date | dateText}}</td>
+                                <td >{{item.end_date | dateText}}</td>
+                                <td >{{item.source_address}}</td>
+                                <td >{{item.destination_address}}</td>
+                                <td >{{item.mileage_start}}</td>
+                                <td >{{item.mileage_end}}</td>
+                                <td >{{item.driver}}</td>
+                                <td >{{item.comment}}</td>
+                                <td >{{item.scheduling_state}}</td>
+                                <td >{{item.applicant_firstname}}</td>
+                                <td >{{item.applicant_lastname}}</td>
+                                <td >{{item.applicant_uid}}</td>
+                                <td >{{item.pilot_firstname}}</td>
+                                <td >{{item.pilot_lastname}}</td>
+                                <td >{{item.pilot_uid}}</td>
+                                <td >{{item.pilot_immediate_superior}}</td>
+                                <td >{{item.policy_exception | SiNo}}</td>
+                                <!-- <td >{{item.date_mod}}</td>
+                                <td >{{item.user_mod}}</td>
+                                <td >{{item.active | SiNo }}</td> -->
+                                <td class="text-right fit">
+                                    <button class="btn btn-default" type="button" ng-click="open(item,'lg','edit')">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </box-body>
+            <box-footer>
+            </box-footer>
+        </itx-box>
+    </div>
+</div>

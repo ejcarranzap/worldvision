@@ -16,7 +16,21 @@
 				<input type="text" class="form-control" ng-model="record.qx" my-enter="fnFilter()">
 			  </div>
 			  <div class="col-md-12 box-body table-responsive no-padding;" style="min-height:400px; max-height:400px; overflow:scroll;">
-				<div my-tree-view data="dataTreePivot" handson-size="500" on-selection-change="onSelectionChange(event, data)" multi-select="false"></div>
+				<!--<div my-tree-view data="dataTreePivot" handson-size="500" on-selection-change="onSelectionChange(event, data)" multi-select="false"></div>-->
+				<div class="row">
+					<div class="col-sm-12">
+						<div my-tree-view-new 
+							 data="dataTreePivot" 
+							 options="options" 
+							 field-id="Id_activity" 
+							 field-parent="Id_activity_parent"
+							 field-text="name"
+							 handson-size="500"
+							 on-selection-change="onSelectionChange(event, data)"
+							 multi-select="false"
+							 on-drop="onDrop(dragEl, dropEl)"></div>
+					</div>
+				</div>
 			  </div>
 			</box-body>
 		  <box-footer>
@@ -79,6 +93,7 @@
 				</div>
 				
 			  </div>
+			  <div>{{ record | json }}</div>
 		  </box-body>
 		  <box-footer>
 			<button type="button" class="btn btn-warning" ng-click="cancel()">Cancelar</button>

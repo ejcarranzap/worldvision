@@ -7,14 +7,15 @@ module.exports.send_emailB = {
             handler: function (request, reply) {
                 try {
                     var res = request.payload;
+                    console.log(res);
                     const nodemailer = require("nodemailer");
                     let transporter = nodemailer.createTransport({
                         secureConnection: false,
                         host: "smtp.gmail.com",
                         port: 587,
                         auth: {
-                            user: 'jon.mega888@gmail.com',
-                            pass: 'gikhxslmlsxjshxf'
+                            user: 'worldvisiongt2023@gmail.com',
+                            pass: 'gekgkjtkapdjibkg'
                         },
                         /*tls: { 
                             ciphers: 'SSLv3'

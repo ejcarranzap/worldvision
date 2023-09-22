@@ -13,8 +13,8 @@ module.exports.send_email = {
                         host: "smtp.gmail.com",
                         port: 587,
                         auth: {
-                            user: 'jon.mega888@gmail.com',
-                            pass: 'gikhxslmlsxjshxf'
+                            user: 'worldvisiongt2023@gmail.com',
+                            pass: 'gekgkjtkapdjibkg'
                         },
                         /*tls: { 
                             ciphers: 'SSLv3'
@@ -23,7 +23,7 @@ module.exports.send_email = {
                     });
 
                     let info = transporter.sendMail({
-                        from: 'Modulo Expedientes<jon.mega888@gmail.com>',
+                        from: 'Modulo Expedientes<worldvisiongt2023@gmail.com>',
                         to: res.email,
                         subject: res.subject,
                         text: res.message,

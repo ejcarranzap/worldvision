@@ -738,6 +738,10 @@
 					angular.extend(scope.options, {
 						getData: function () {
 							return scope.itemsAux;
+						},
+						load: function () {
+							scope.items = [];
+							scope.loadTreeItems();
 						}
 					});
 
@@ -828,21 +832,11 @@
 					};
 
 					scope.loadTreeItems = function () {
-						if (scope.itemsAux.length == 0) {
-							scope.itemsAux = angular.copy(scope.$parent[scope.data], scope.itemsAux);
-							scope.itemsAux.push({
-								id: 0,
-								parent: null,
-								text: 'Root',
-								icon: "glyphicon glyphicon-stop",
-								selectedIcon: "glyphicon glyphicon-check",
-								state: {}
-							});
-							console.log('load itemsAux new', scope.itemsAux);
-						}
+						scope.itemsAux = angular.copy(scope.$parent[scope.data], scope.itemsAux);
 
 						scope.items = [];
 						scope.items = angular.copy(scope.itemsAux, scope.items);
+						console.log('tree new ', scope.items);
 						scope.items = scope.getTreeData(null);
 
 						scope.el = $(elem);
@@ -1042,6 +1036,18 @@
 						} else {
 							scope.el.removeClass('hidden');
 						}
+
+						scope.el.unbind("click").click(function () {
+							/*alert('click');*/
+							$('.skin-yellow .sidebar-menu .treeview-menu>li>a').each((idx, elem) => {
+								if (elem != this) {
+									elem.style = 'color: #b8c7ce!important';
+								} else {
+									elem.style = 'color: #f39c12!important';
+								}
+
+							});
+						});
 
 						return scope.datax;
 					}, function (newVal, oldVal) { });
@@ -1266,7 +1272,7 @@
 		return {
 			restrict: 'A',
 			require: 'ngModel',
-			template: '<input type="text" editable="false" value="{{dtpDate | date: \'dd/MM/yyyy HH:mm:ss\'}}" class="form-control input-sm"/>',
+			template: '<input type="text" editable="false" ng-readonly="true" value="{{dtpDate | date: \'dd/MM/yyyy HH:mm:ss\'}}" class="form-control input-sm"/>',
 			scope: {
 				dtpval: '=?',
 				dtpEnabled: '=?'
@@ -1343,11 +1349,11 @@
 
 					scope.$watch(
 						function () {
-							$targetSelects.find('input').attr('disabled', !scope.dtpenabled);
+							/*$targetSelects.find('input').attr('disabled', !scope.dtpenabled);*/
 							return ngModel.$modelValue;
 						},
 						function (newValue) {
-							$targetSelects.find('input').attr('disabled', !scope.dtpenabled);
+							/*$targetSelects.find('input').attr('disabled', !scope.dtpenabled);*/
 							if (newValue) {
 								scope.dtpval = newValue;
 								scope.dtpDate = moment(newValue, 'YYYY-MM-DD HH:mm:ss')._d;
@@ -1951,7 +1957,7 @@
 				'<div class="col-md-12">' +
 				'<input type="file" class="form-control-file" style="display:none;">' +
 				'<button class="btn btn-primary" type="submit" style="margin-right:10px;">Buscar</button>' +
-				'<button class="btn btn-primary hidden" type="submit" style="margin-right:10px;"><i class="fas fa-cloud-upload-alt"></i></button>'+
+				'<button class="btn btn-primary hidden" type="submit" style="margin-right:10px;"><i class="fas fa-cloud-upload-alt"></i></button>' +
 				'<button class="btn btn-primary" type="submit">Eliminar</button>' +
 				'</div>' +
 				'</div>',
@@ -1977,7 +1983,7 @@
 				});
 
 				$(scope.img).click(function (evt) {
-					console.log('imageclick:',$(this).attr('src'));
+					console.log('imageclick:', $(this).attr('src'));
 					$.fancybox.open('<div class="message"><img src="/uploads/' + scope.value + '"></img></div>');
 				});
 
@@ -2014,7 +2020,7 @@
 						model.$setViewValue('ic_broken.png');
 						scope.value = model.$modelValue;
 					}
-					console.log('modelvalue:',scope.value)
+					console.log('modelvalue:', scope.value)
 				});
 			}
 		}

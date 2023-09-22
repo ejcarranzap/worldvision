@@ -43,7 +43,7 @@
                         <td colspan="9" style="text-align:center;">No hay datos...</td>
                     </tr>
                     <tr ng-click="" dir-paginate="item in pivot_data | itemsPerPage:10">
-                        <td class="fit" ng-class="{danger: (item.status == 1), success: (item.status != 1), warning: (item.steps.length == 0)}">{{item.Id_process}}</td>
+                        <td class="fit" ng-class="{danger: (item.passdue == 1),success: (item.steps.length > 0), warning: (item.status == 1), info: (item.steps.length == 0)}">{{item.Id_process}}</td>
                         <td>{{item.title}}</td>
                         <td>{{item.target}}</td>   
                         <td>{{item.activity_pred}}</td>                     

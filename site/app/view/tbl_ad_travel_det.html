@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="close()" aria-label="Close">
+      <span aria-hidden="true">?</span>
+    </button>
+    <h4 class="modal-title">tbl_ad_travel</h4>
+  </div>
+  <div class="modal-body">
+    <itx-box box-type="">
+      <box-title></box-title>
+      <box-body>
+        <div class="row">
+          <div class="col-md-12">
+            <form role="form">
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>ID:</label>
+                        <input type="number" class="form-control" placeholder="Id_travel" ng-model="record.Id_travel" readonly>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Id_vehicle:</label>
+                        <itx-select is-disabled="isDisabled" ng-change="record.Id_vehicle = record.tbl_ad_vehicleCmb.Id_vehicle" ng-model="record.tbl_ad_vehicleCmb" 
+                        ng-options="tbl_ad_vehicle.vehiculo for tbl_ad_vehicle in tbl_ad_vehicles track by tbl_ad_vehicle.Id_vehicle" ></itx-select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>start_date:</label>
+                        <div class="input-group">
+                            <div my-datepicker ng-model="record.start_date" dtp-enabled="enabled"></div>
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>end_date:</label>
+                        <div class="input-group">
+                            <div my-datepicker ng-model="record.end_date" dtp-enabled="enabled"></div>
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>source_address:</label>
+                        <input type="text" class="form-control" placeholder="source_address" ng-model="record.source_address">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>destination_address:</label>
+                        <input type="text" class="form-control" placeholder="destination_address" ng-model="record.destination_address">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>mileage_start:</label>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>mileage_end:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>driver:</label>
+                        <input type="text" class="form-control" placeholder="driver" ng-model="record.driver">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>comment:</label>
+                        <input type="text" class="form-control" placeholder="comment" ng-model="record.comment">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Id_scheduling_state:</label>
+                        <input type="text" class="form-control" placeholder="scheduling_state" ng-model="record.scheduling_state" >
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>applicant_firstname:</label>
+                        <input type="text" class="form-control" placeholder="applicant_firstname" ng-model="record.applicant_firstname">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>applicant_lastname:</label>
+                        <input type="text" class="form-control" placeholder="applicant_lastname" ng-model="record.applicant_lastname">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>applicant_uid:</label>
+                        <input type="text" class="form-control" placeholder="applicant_uid" ng-model="record.applicant_uid">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>pilot_firstname:</label>
+                        <input type="text" class="form-control" placeholder="pilot_firstname" ng-model="record.pilot_firstname">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>pilot_lastname:</label>
+                        <input type="text" class="form-control" placeholder="pilot_lastname" ng-model="record.pilot_lastname">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>pilot_uid:</label>
+                        <input type="text" class="form-control" placeholder="pilot_uid" ng-model="record.pilot_uid">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>pilot_immediate_superior:</label>
+                        <input type="text" class="form-control" placeholder="pilot_immediate_superior" ng-model="record.pilot_immediate_superior">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>policy_exception:</label>
+                        <input type="number" class="form-control" placeholder="policy_exception" ng-model="record.policy_exception" >
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>date_mod:</label>
+                        <div class="input-group">
+                            <div my-datepicker ng-model="record.date_mod" dtp-enabled="enabled"></div>
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>user_mod:</label>
+                        <input type="text" class="form-control" placeholder="user_mod" ng-model="record.user_mod">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>active:</label>
+                        <itx-checkbox ng-model="record.active" is-disabled="disabled" text-label="active" />
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </box-body>
+      <box-footer></box-footer>
+    </itx-box>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" ng-click="close()">Cancelar</button>
+    <!--<button type="button" class="btn btn-info" ng-click="save()">Aceptar</button> -->
+    <button type="button" class="btn btn-success" ng-click="autorizar()" ng-confirm-message="Desea autorizar la solicitud?">Autorizar</button>
+    <button type="button" class="btn btn-danger" ng-click="rechazar()" ng-confirm-message="Desea rechazar la solicitud?">Rechazar</button>
+  </div>
+</div>

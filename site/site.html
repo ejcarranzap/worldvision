@@ -63,7 +63,7 @@
     <header class="main-header" ng-class="{'hidden': !isAutenticated}">
       <!--<header class="main-header">-->
       <!-- Logo -->
-      <a href="./index2.html" class="logo">
+      <a href="#" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>W</b>V</span>
         <!-- logo for regular state and mobile devices -->
@@ -290,40 +290,95 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="#/tbl_ad_process_type" show-menu><i class="fa fa-circle-o"></i>Tipo Proceso</a></li>
-              <li><a href="#/tbl_ad_activity" show-menu><i class="fa fa-circle-o"></i>Actividad</a></li>
-              <li><a href="#/tbl_ad_process" show-menu><i class="fa fa-circle-o"></i>Procesos</a></li>
-              <li><a href="#/tbl_ad_process/1" show-menu><i class="fa fa-circle-o"></i>Seguiemiento</a></li>
+              <!-- <li><a href="#/tbl_ad_activity" show-menu><i class="fa fa-circle-o"></i>Actividad</a></li> -->
+              <li><a href="#/tbl_ad_activity" show-menu><i class="fa fa-circle-o"></i>Estructura de Proceso</a></li>
+              <!-- <li><a href="#/tbl_ad_process" show-menu><i class="fa fa-circle-o"></i>Procesos</a></li> -->
+              <li><a href="#/tbl_ad_process" show-menu><i class="fa fa-circle-o"></i>Nuevo Proceso</a></li>
+              <!-- <li><a href="#/tbl_ad_process/1" show-menu><i class="fa fa-circle-o"></i>Seguiemiento</a></li> -->
+              <li><a href="#/tbl_ad_process/1" show-menu><i class="fa fa-circle-o"></i>Actividades Asignadas</a></li>
               <li><a href="#/rpt_proceso_aprobado_vs_real" show-menu><i class="fa fa-circle-o"></i>Reporte Proceso Aprobado Vs Real</a></li>
               <li><a href="#/rpt_proceso_por_usuario" show-menu><i class="fa fa-circle-o"></i>Reporte Proceso Por Usuario</a></li>
               <li><a href="#/rpt_proceso" show-menu><i class="fa fa-circle-o"></i>Reporte Proceso</a></li>
             </ul>
           </li>
+          <li class="header">SEGURIDAD CORPORATIVA</li>
           <li class="treeview">
             <a>
-              <i class="fa fa-file-text"></i> <span>Seguridad Corporativa</span>
+              <i class="fa fa-file-text"></i> <span>Catalogos</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#/tbl_ad_segc_asset_state" show-menu><i class="fa fa-circle-o"></i>Estado de Activo</a></li>
-              <li><a href="#/tbl_ad_segc_asset_type" show-menu><i class="fa fa-circle-o"></i>Tipo de Activo</a></li>              
-              <li><a href="#/tbl_ad_segc_incident_class" show-menu><i class="fa fa-circle-o"></i>Clasificación Tipo de Incidente</a></li>
-              <li><a href="#/tbl_ad_segc_incident_group" show-menu><i class="fa fa-circle-o"></i>Grupo de Incidente</a></li>
-              <li><a href="#/tbl_ad_segc_incident_type" show-menu><i class="fa fa-circle-o"></i>Tipo de Incidente</a></li>
-              <li><a href="#/tbl_ad_segc_job_vacancy" show-menu><i class="fa fa-circle-o"></i>Puesto</a></li>
-              <li><a href="#/tbl_ad_segc_person" show-menu><i class="fa fa-circle-o"></i>Persona</a></li>
-              <li><a href="#/tbl_ad_segc_relation_type" show-menu><i class="fa fa-circle-o"></i>Tipo de Relación (WorldVision)</a></li>
+              <li class="treeview">
+                <a>
+                  <i class="fa fa-file-text"></i> <span>App Web</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="#/tbl_ad_segc_asset_state" show-menu><i class="fa fa-circle-o"></i>Estado de Activo</a></li>
+                  <li><a href="#/tbl_ad_segc_asset_type" show-menu><i class="fa fa-circle-o"></i>Tipo de Activo</a></li>              
+                  <li><a href="#/tbl_ad_segc_incident_class" show-menu><i class="fa fa-circle-o"></i>Clasificación Tipo de Incidente</a></li>
+                  <li><a href="#/tbl_ad_segc_incident_group" show-menu><i class="fa fa-circle-o"></i>Grupo de Incidente</a></li>
+                  <li><a href="#/tbl_ad_segc_incident_type" show-menu><i class="fa fa-circle-o"></i>Tipo de Incidente</a></li>
+                  <li><a href="#/tbl_ad_segc_job_vacancy" show-menu><i class="fa fa-circle-o"></i>Puesto</a></li>
+                  <li><a href="#/tbl_ad_segc_person" show-menu><i class="fa fa-circle-o"></i>Persona</a></li>
+                  <li><a href="#/tbl_ad_segc_relation_type" show-menu><i class="fa fa-circle-o"></i>Tipo de Relación (WorldVision)</a></li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a>
+                  <i class="fa fa-file-text"></i> <span>App Android</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li><a href="#/tbl_ad_segc_geo_alert_type" show-menu><i class="fa fa-circle-o"></i>Tipo de Alerta</a></li>
+                  <li><a href="#/tbl_ad_segc_news" show-menu><i class="fa fa-circle-o"></i>Noticias/Notificaciones</a></li>
+                  <li><a href="#/tbl_ad_segc_news_type" show-menu><i class="fa fa-circle-o"></i>Tipo Noticias</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a>
+              <i class="fa fa-file-text"></i> <span>Incidentes (WEB)</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
               <li><a href="#/tbl_ad_segc_incident" show-menu><i class="fa fa-circle-o"></i>Registro de Incidentes</a></li>
               <li><a href="#/rptAnalisisRiesgo" show-menu><i class="fa fa-circle-o"></i>Reporte Analisís de Riesgo</a></li>
-
-              <li><a href="#/tbl_ad_segc_geo_alert_type" show-menu><i class="fa fa-circle-o"></i>Tipo de Alerta</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a>
+              <i class="fa fa-file-text"></i> <span>Incidentes (APP)</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
               <li><a href="#/tbl_ad_segc_geo_location" show-menu><i class="fa fa-circle-o"></i>Geoposición</a></li>
               <li><a href="#/tbl_ad_segc_geo_location_alert" show-menu><i class="fa fa-circle-o"></i>Alerta Geoposición</a></li>
               <li><a href="#/tbl_ad_segc_incident_app" show-menu><i class="fa fa-circle-o"></i>Registro Incidentes App</a></li>
-              <li><a href="#/tbl_ad_segc_news" show-menu><i class="fa fa-circle-o"></i>Noticias/Notificaciones</a></li>
-              <li><a href="#/tbl_ad_segc_news_type" show-menu><i class="fa fa-circle-o"></i>Tipo Noticias</a></li>
               <li><a href="#/segc_map" show-menu><i class="fa fa-circle-o"></i>Mapa Geoposicion</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a>
+              <i class="fa fa-file-text"></i> <span>Viaje</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#/tbl_ad_travel" show-menu><i class="fa fa-circle-o"></i>Autorizacion de Viaje</a></li>
+              <li><a href="#/rpt_travel_bitacora" show-menu><i class="fa fa-circle-o"></i>Bitacora de Viaje</a></li>
             </ul>
           </li>
           <li class="header">AYUDA</li>
@@ -704,6 +759,8 @@
   <script src="./app/controller/tbl_ad_segc_newsCtrl.js"></script>
   <script src="./app/controller/tbl_ad_segc_news_typeCtrl.js"></script>
   <script src="./app/controller/segc_mapCtrl.js"></script>
+  <script src="./app/controller/tbl_ad_travelCtrl.js"></script>
+  <script src="./app/controller/rpt_travel_bitacoraCtrl.js"></script>
 
 
 

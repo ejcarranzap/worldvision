@@ -7,6 +7,7 @@
 		$rootScope.PanelSubTitle = 'Expediente';
 		$rootScope.PanelSubSubTitle = 'Actividad';
 		$scope.record = {};
+		$scope.options = {};
 
 		$scope.checkAll = function (nodes, flag) {
 			angular.forEach(nodes, function (itm) {
@@ -39,10 +40,10 @@
 			
 			/*$scope.selectAllParents(node, data.state.selected);*/
 			/*$scope.selectAllChilds(node, data.state.selected);*/
-			$scope.expandAll($scope.dataTreePivot, true);
-			$scope.dataTreePivotAux = angular.copy($scope.dataTreePivot, $scope.dataTreePivotAux);
+			//$scope.expandAll($scope.dataTreePivot, true);
+			//$scope.dataTreePivotAux = angular.copy($scope.dataTreePivot, $scope.dataTreePivotAux);
 			setTimeout(function () {
-				$scope.cargaCmb();
+				//$scope.cargaCmb();
 				$scope.$apply();
 			}, 0);
 		};
@@ -104,17 +105,27 @@
 		$scope.qx = '';
 		$scope.dataTreePivotAux = [];
 
+		setTimeout(() => {
+			$scope.$watch('record.qx', function () {
+				$scope.fnFilter();
+			});	
+		}, 0);
+		
 		/*$scope.$watch('record.qx', function () {*/
 		$scope.fnFilter = function(){
 			if ($scope.record.qx) {
 				$scope.dataTreePivot = angular.copy($scope.dataTreePivotAux, $scope.dataTreePivot);
-				$scope.expandAll($scope.dataTreePivot, false);
-				$scope.filterNodesByText($scope.dataTreePivot, $scope.record.qx);
+				var aux = $scope.dataTreePivot.filter(o => o.description.includes($scope.record.qx) || o.name.includes($scope.record.qx));
+				$scope.dataTreePivot = [];
+				$scope.dataTreePivot = aux;
+				/*$scope.expandAll($scope.dataTreePivot, false);
+				$scope.filterNodesByText($scope.dataTreePivot, $scope.record.qx);*/				
 			} else {
 				$scope.dataTreePivot = angular.copy($scope.dataTreePivotAux, $scope.dataTreePivot);
-				$scope.expandAll($scope.dataTreePivot, false);
+				/*scope.expandAll($scope.dataTreePivot, false);*/
 			}
 			setTimeout(function () {
+					$scope.options.load();
 					$scope.$apply();
 				});
 		};
@@ -190,8 +201,11 @@
 					$scope.tbl_ad_process_type = angular.copy($scope.data2, $scope.tbl_ad_process_type);
 					
 					$scope.prepareData();
-					$scope.dataTreePivot = $scope.getTreeData(null);
+					/*$scope.dataTreePivot = $scope.getTreeData(null);*/
+					$scope.dataTreePivot = $scope.data;
 					$scope.dataTreePivotAux = angular.copy($scope.dataTreePivot, $scope.dataTreePivotAux);
+					console.log('tree new data: ', $scope.dataTreePivotAux);
+					$scope.options.load();
 					$scope.$apply();
 				}, 0);
 			});
@@ -232,7 +246,9 @@
 			autenticationService.call($scope.urls).then(function (results) {
 				setTimeout(function () {
 					$scope.record = {};
-					$scope.getData();
+					/*$scope.getData();
+					$scope.load();*/
+					location.reload();
 				}, 0);
 			});
 		};

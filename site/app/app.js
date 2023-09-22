@@ -40,6 +40,22 @@
 					requireLogin: true
 				}
 			})
+			/*SOLICITUD DE VIAJE*/			
+			.when('/rpt_travel_bitacora', {
+				templateUrl: 'app/view/rpt_travel_bitacora.html',
+				controller: 'rpt_travel_bitacoraCtrl',
+				data: {
+					requireLogin: true
+				}
+			})
+			.when('/tbl_ad_travel', {
+				templateUrl: 'app/view/tbl_ad_travel.html',
+				controller: 'tbl_ad_travelCtrl',
+				data: {
+					requireLogin: true
+				}
+			})
+			/*END SOLICITUD DE VIAJE*/
 			/*SEGURIDAD CORPORATIVA */
 			.when('/tbl_ad_segc_geo_alert_type', {
 				templateUrl: 'app/view/tbl_ad_segc_geo_alert_type.html',

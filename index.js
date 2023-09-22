@@ -32,44 +32,44 @@ const sandbox = vm.createContext({
   process: process,
   Buffer: Buffer
 });
- /*mssql*/
- //const sql = require('mssql/msnodesqlv8');
- const sql = require('mssql');
+/*mssql*/
+//const sql = require('mssql/msnodesqlv8');
+const sql = require('mssql');
 
- const configLocal = {
-    //user: 'sa',
-    //password: 'V1s10n2018*',
-    //server: 'GTMOFLLETMGMT',
-    //database: 'WORLDVISION',
-    user: 'sa',
-		password: 'Sopmac08%',
-		server: 'LOCALHOST',
-    database: 'WORLDVISION',
-    //port: 4445,
-	  //port: 50843,
-    packetSize: 32767,
-		connectionTimeout: 300000,
-		requestTimeout: 300000,
-    pool: {
-        max: 10,
-        min: 0,
-        idleTimeoutMillis: 300000
-    },
-    options: {
-      encrypt: false, // Use this if you're on Windows Azure
-      trustedConnection: true,
-      useUTC: true
-	    //,instanceName: 'SQLEXPRESS'
-    }
- };
- //const pool = sql.connect(config);
- //module.exports.dbpool = pool;
- module.exports.configLocal = configLocal;
- module.exports.dbsql = sql;
+const configLocal = {
+  //user: 'sa',
+  //password: 'V1s10n2018*',
+  //server: 'GTMOFLLETMGMT',
+  //database: 'WORLDVISION',
+  user: 'sa',
+  password: 'Sopmac08%',
+  server: 'sqlexpress',
+  database: 'WORLDVISION',
+  //port: 4445,
+  //port: 50843,
+  packetSize: 32767,
+  connectionTimeout: 300000,
+  requestTimeout: 300000,
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 300000
+  },
+  options: {
+    encrypt: false, // Use this if you're on Windows Azure
+    trustedConnection: true,
+    useUTC: true
+    //,instanceName: 'SQLEXPRESS'
+  }
+};
+//const pool = sql.connect(config);
+//module.exports.dbpool = pool;
+module.exports.configLocal = configLocal;
+module.exports.dbsql = sql;
 
- const sync = require('synchronize')
- module.exports.sync = sync;
- /*end mssql*/
+const sync = require('synchronize')
+module.exports.sync = sync;
+/*end mssql*/
 /*postgresql*/
 /*const connectionString = 'postgres://postgres:sopmac08$$@192.168.8.131:5432/TIMESHEETDB';
 const pgPromise = require('pg-promise');
@@ -89,13 +89,13 @@ module.exports.db = db;*/
 /*end postgresql*/
 
 var options = {
-  host: '0.0.0.0',
-  port: 3081,
+  /*host: '0.0.0.0',*/
+  port: 3082,
   router: {
     stripTrailingSlash: true
   },
   routes: {
-      cors: true
+    cors: true
   }
 };
 
@@ -112,15 +112,17 @@ server.connection(options);
   }
 });*/
 
-server.ext('onPreResponse', function(request, reply) {
+server.ext('onPreResponse', function (request, reply) {
   //corsHeaders(request, reply);
-  var response = request.response;
+  var response = request.response;  
+  /*console.log(response.headers);
+
   if (response.variety === 'file') {
-      var path = request.params.path;
-      var route = request.route; 
-      response.header('X-Frame-Options','deny');
-  }
-  
+    var path = request.params.path;
+    var route = request.route;
+    response.header('X-Frame-Options', 'SAMEORIGIN');
+  }*/
+
   if (request.response.isBoom) {
     const err = request.response;
     const errMsg = err.originalError;
@@ -129,11 +131,11 @@ server.ext('onPreResponse', function(request, reply) {
     console.log('ERROR ONPRERESPONSE');
     console.log(err);
     return reply({
-        code: errCode,
-        msg: errMsg,
-        success: false,
-        data: []
-      })
+      code: errCode,
+      msg: errMsg,
+      success: false,
+      data: []
+    })
       .code(statusCode);
   }
 
@@ -167,51 +169,51 @@ server.register(require('hapi-auth-jwt'), (err) => {
       message: read(file, 'utf8'),
       password: 'epsilon8'
     }, function(err, res) {*//*EJCP 20220316*/
-      
-      //const route = require(path.join(__dirname, file));
-      //let res = read(file, 'utf8');
-      //console.log(res);
-      var res = fs.readFileSync(file, "utf8");/*EJCP 20220316*/
-      let basename = path.basename(file);
-      /*let name = path.basename(file, '.jse');*//*EJCP 20220316*/
-      let name = path.basename(file, '.js');/*EJCP 20220316*/
-      let dir = './mymodulesx/' + basename;
 
-      console.log('loading '+dir);
+    //const route = require(path.join(__dirname, file));
+    //let res = read(file, 'utf8');
+    //console.log(res);
+    var res = fs.readFileSync(file, "utf8");/*EJCP 20220316*/
+    let basename = path.basename(file);
+    /*let name = path.basename(file, '.jse');*//*EJCP 20220316*/
+    let name = path.basename(file, '.js');/*EJCP 20220316*/
+    let dir = './mymodulesx/' + basename;
 
-      vm.runInNewContext(res, sandbox, dir);
-      /*switch (name) {
-        case 'route':
-          sandbox.module.exports.route.routes().forEach(mroute => {
-            server.route(mroute);
-          });
-          break;
-        default:
-          if (name != 'pgcnsync' && name != 'mssqlcnSync'
+    console.log('loading ' + dir);
+
+    vm.runInNewContext(res, sandbox, dir);
+    /*switch (name) {
+      case 'route':
+        sandbox.module.exports.route.routes().forEach(mroute => {
+          server.route(mroute);
+        });
+        break;
+      default:
+        if (name != 'pgcnsync' && name != 'mssqlcnSync'
+        && name != 'middleware' && name != 'modelernodejs'
+        && name != 'modelercore' && name != 'modelerdatabase'
+        && name != 'modelertemplate' && name != 'modelercontroller'
+        && name != 'modelerjava' && name != 'modelerjavadb'
+        && name != 'modelerjavadbhelper')
+          server.route(sandbox.module.exports[name].path);
+        break;
+    };*/
+    switch (name) {
+      case 'route':
+        sandbox.module.exports.route.routes().forEach(mroute => {
+          server.route(mroute);
+        });
+        break;
+      default:
+        if (name != 'pgcnsync' && name != 'mssqlcnSync'
           && name != 'middleware' && name != 'modelernodejs'
           && name != 'modelercore' && name != 'modelerdatabase'
           && name != 'modelertemplate' && name != 'modelercontroller'
           && name != 'modelerjava' && name != 'modelerjavadb'
           && name != 'modelerjavadbhelper')
-            server.route(sandbox.module.exports[name].path);
-          break;
-      };*/
-      switch (name) {
-        case 'route':
-          sandbox.module.exports.route.routes().forEach(mroute => {
-            server.route(mroute);
-          });
-          break;
-        default:
-          if (name != 'pgcnsync' && name != 'mssqlcnSync'
-          && name != 'middleware' && name != 'modelernodejs'
-          && name != 'modelercore' && name != 'modelerdatabase'
-          && name != 'modelertemplate' && name != 'modelercontroller'
-          && name != 'modelerjava' && name != 'modelerjavadb'
-          && name != 'modelerjavadbhelper')
-            server.route(sandbox.module.exports[name].path);
-          break;
-     };
+          server.route(sandbox.module.exports[name].path);
+        break;
+    };
     /*EJCP 20220316*//*});*//*EJCP 20220316*/
 
     /*if (route.path != null && route.type != 'multiple') {
@@ -228,13 +230,13 @@ server.register(require('hapi-auth-jwt'), (err) => {
     console.log("Error: " + err);
 });
 
-server.register(Inert, function(err) {
+server.register(Inert, function (err) {
   if (err)
     console.log("Error: " + err);
 });
 
-server.register(Cookie, function(err) {
-  server.start(function(err) {
+server.register(Cookie, function (err) {
+  server.start(function (err) {
     if (err) {
       console.log('Error: ' + err.message);
     }
